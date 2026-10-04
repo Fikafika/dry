@@ -1,0 +1,14 @@
+$theme-colors-bg-subtle: (
+  "primary": lighten($primary, 35%),
+  "secondary": lighten($secondary, 35%),
+  "success": lighten($success, 35%),
+  "info": lighten($info, 35%),
+  "warning": lighten($warning, 35%),
+  "danger": lighten($danger, 35%),
+  "light": lighten($light, 35%),
+  "dark": lighten($dark, 35%),
+) !default;
+
+@each $color, $value in $theme-colors-bg-subtle {
+  @include bg-variant(".bg-#{$color}-subtle", $value);
+}

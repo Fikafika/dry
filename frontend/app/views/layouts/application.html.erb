@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= default_title %></title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= action_cable_meta_tag %>
+    <%= env_tag('UNEEK_MAIL_APP_PROTOCOL') %>
+    <%= env_tag('UNEEK_MAIL_APP_HOST') %>
+    <%= env_tag('UNEEK_AI_ASSISTANT_PROTOCOL') %>
+    <%= env_tag('UNEEK_AI_ASSISTANT_HOST') %>
+    <%= env_tag('FORMULA_EDITOR_PATH') %>
+    <%= env_tag('FULLCALENDAR_LICENSE_KEY') %>
+    <%= env_tag('ENV_TITLE') %>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <%= stylesheet_link_tag current_theme_path, media: 'all', id: 'application-theme', 'data-application-css': asset_path('application.css') %>
+
+    <%= stylesheet_pack_tag 'client_only' %>
+
+    <%= javascript_pack_tag 'application', defer: false %>
+    <%= javascript_include_tag 'application' %>
+
+    <script type="text/javascript">
+      var UneekSso = {
+        url: <%= Devise.cas_base_url.chop.to_json.html_safe %>,
+        UserSessions: {
+          casBaseLoginUrl: "<%= j(::Devise.cas_client.add_service_to_login_url(::Devise.cas_service_url(request.url, ::Devise.mappings[::Devise.default_scope]))) %>",
+          modalSelector: "#sign-in-modal",
+          renderServiceXhr: function (xhr, formOpened) {
+            $(document).trigger("userConnected.uneekSso");
+            if (formOpened) // TODO sometimes, the modal is not fully opened when we ask to close it...
+              $(UneekSso.UserSessions.modalSelector).modal("hide"); // meh
+
+            // replace csrf-token
+            const headerToken = xhr.getResponseHeader('X-CSRF-Token');
+            if (headerToken)
+              $('meta[name=csrf-token]').attr('content', headerToken);
+          },
+          _redirectToCasLogin:  function () {
+            UneekSso.UserSessions._saveUrlBeforeRedirectToCas()
+            window.location = UneekSso.UserSessions.getCasLoginUrl();
+          },
+          _saveUrlBeforeRedirectToCas: function() {
+            window.localStorage.setItem("path_saved_before_redirect_to_cas", window.location.pathname)
+          },
+          deleteSavedPath: function () {
+            var url = window.localStorage.getItem("path_saved_before_redirect_to_cas");
+            window.localStorage.removeItem("path_saved_before_redirect_to_cas");
+            return url;
+          }
+        },
+        _toLoad: [
+          () => {
+            window.sessionStorage.removeItem("sign_in_enabled");
+            window.localStorage.removeItem("sign_in_enabled");
+          },
+          () => {
+            var modalLink = $("#member_access, #member_access_sm");
+            if (modalLink.length === 0)
+              return;
+            modalLink.attr("href", "#");
+            modalLink.attr("data-toggle", "modal");
+            modalLink.attr("data-target", "#login_box");
+            $(UneekSso.UserSessions.modalSelector).modal("show");
+          }
+        ]
+      };
+    </script>
+
+    <%= javascript_include_tag "#{Devise.cas_base_url}packs/client/js/v1-0/jquery3-bootstrap4.js" %>
+
+    <%=  favicon_link_tag asset_path('favicon.svg') %>
+  </head>
+
+  <body lang="<%= I18n.locale %>">
+    <%= yield %>
+  </body>
+  <script type="text/javascript">
+    I18n.defaultLocale = "<%= I18n.default_locale %>";
+    I18n.locale = "<%= I18n.locale %>";
+  </script>
+</html>

@@ -1,0 +1,18 @@
+#!/bin/bash
+
+
+max_user_watches=`cat /proc/sys/fs/inotify/max_user_watches`
+if [ "$max_user_watches" -lt "524288" ]; then
+  echo "increase max files inotify can watch"
+  sudo sysctl fs.inotify.max_user_watches=524288
+  sudo sysctl fs.inotify.max_queued_events=999999
+  sudo sysctl -p
+fi
+
+export USER_ID=$(id -u)
+export GROUP_ID=$(id -g)
+
+cat "env.example" | envsubst > ".env"
+
+docker compose run --rm frontend $@
+

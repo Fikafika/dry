@@ -1,0 +1,136 @@
+//@import 'datatables.net-dt/css/jquery.dataTables';
+
+@import 'datatables/bootstrap4';
+
+@import 'datatables.net-autofill-bs4/css/autoFill.bootstrap4';
+@import 'datatables.net-buttons-bs4/css/buttons.bootstrap4';
+@import 'datatables.net-colreorder-bs4/css/colReorder.bootstrap4';
+
+@import 'datatables/fixed-columns.bootstrap4';
+
+@import 'datatables.net-fixedheader-bs4/css/fixedHeader.bootstrap4';
+@import 'datatables.net-keytable-bs4/css/keyTable.bootstrap4';
+
+@import 'datatables/scroller.bootstrap4';
+
+@import 'datatables.net-select-bs4/css/select.bootstrap4';
+@import 'datatables.net-rowreorder-bs4/css/rowReorder.bootstrap4';
+
+@import 'datatables/header';
+@import 'datatables/select-checkbox';
+@import 'datatables/loading';
+@import 'datatables/sub_table';
+@import 'datatables/cell-item-icon';
+@import 'datatables/cell-img';
+@import 'datatables/cell-ellipsis';
+@import 'datatables/footer';
+@import 'datatables/row-collapse';
+
+
+.dataTables_wrapper {
+  $datatable-header-bg: $light-yiq !default;
+
+  .highlight-table-line {
+    background-color: rgba(0,0,0,0.2) !important; // FT: this should be bg-dark with opacity (don't know how to do it)
+  }
+
+  // 2-col layout for cell with btn
+  .flex-row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  .col-data {
+    width: 80%
+  }
+
+  .col-btn {
+    width: 20%
+  }
+
+  table.dataTable {
+    // remove margins added after table loaded
+    margin-top: 0 !important;
+  }
+
+  .dataTables_scrollBody {
+    width: 100% !important;
+
+    :not(.selected) > td {
+      background-color: $body-bg;
+    }
+
+    .selected td {
+      background-color: $list-group-active-bg;
+    }
+
+  }
+
+  .DTFC_LeftWrapper{
+    .DTFC_LeftHeadWrapper > table {
+      background-color: $datatable-header-bg !important;
+    }
+    .DTFC_LeftBodyLiner > table {
+      background-color: $body-bg !important;
+    }
+  }
+
+  .dtfc-right-top-blocker, dtfc-right-bottom-blocker {
+    background-color: unset !important;
+  }
+
+  .dataTables_scroll {
+    background-color: $datatable-header-bg;
+    border: $table-border-width solid $table-border-color;
+
+    .table-bordered {
+      border-top: none !important;
+      border-left: none !important;
+    }
+  }
+
+  .dataTables_scrollHead {
+    width: 100% !important;
+    box-shadow: inset 0 (-2 * $table-border-width) 0 0 $table-border-color;
+
+    thead {
+      background-color: $datatable-header-bg;
+    }
+    .lock-icon:before {
+      content: "\f09c";
+    }
+
+    th.dtfc-fixed-left, th.dtfc-fixed-right {
+      background-color: $datatable-header-bg;
+      z-index: 1;
+
+      .lock-icon::before {
+        content: "\f023";
+      }
+    }
+
+  }
+
+  .summary-footer-cell.dtfc-fixed-left, .summary-footer-cell.dtfc-fixed-right {
+    background-color: $datatable-header-bg;
+    z-index: 1;
+  }
+
+  table {
+    width: fit-content !important;
+    table-layout: fixed;
+  }
+
+  td, th {
+    overflow: hidden;
+  }
+
+  .cell-editable a {
+    display: inline-block;
+  }
+}
+
+table.DTCR_clonedTable.dataTable {
+  z-index: 100000 !important;
+}

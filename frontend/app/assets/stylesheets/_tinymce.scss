@@ -1,0 +1,10 @@
+// workaround https://github.com/tinymce/tinymce-docs/issues/1833
+.form-group .mce-content-body {
+  border-color: $input-border-color;
+}
+
+// fix z-index in cells
+.tox-tinymce-inline, .tox-tinymce-aux {
+  z-index: 10001 !important;
+}
+

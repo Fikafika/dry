@@ -1,0 +1,10 @@
+---
+:concurrency: <%= ENV.fetch('SIDEKIQ_CONCURRENCY'){10} %>
+:queues:
+  - critical
+  - default
+  - model_dependencies
+  - mail_hosting_sync
+  - import
+  - doc_gen
+  - low

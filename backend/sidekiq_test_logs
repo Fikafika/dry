@@ -1,0 +1,13 @@
+#!/bin/bash
+
+while true; do
+  docker compose -f docker-compose.backend.test.yml logs --tail 0 -f sidekiq_test
+
+  while true; do
+    container=`docker compose ps | grep sidekiq_test`
+    if [ -n "$container" ]; then
+      break
+    fi
+    sleep 1
+  done
+done

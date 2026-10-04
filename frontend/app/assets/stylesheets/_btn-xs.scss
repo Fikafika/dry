@@ -1,0 +1,9 @@
+$btn-padding-y-xs: .2rem !default;
+$btn-padding-x-xs: .4rem !default;
+$btn-font-size-xs: $font-size-base * .7 !default;
+$btn-line-height-xs: 1.5 !default;
+$btn-border-radius-xs: 0.1rem !default;
+
+.btn-xs {
+  @include button-size($btn-padding-y-xs, $btn-padding-x-xs, $btn-font-size-xs, $btn-line-height-xs, $btn-border-radius-xs);
+}

@@ -1,0 +1,21 @@
+@import 'font-awesome';
+
+.fa-fw {
+  min-width: 1.25em;
+}
+
+.fa,
+.fas,
+.fa-solid,
+.far,
+.fa-regular,
+.fal,
+.fa-light,
+.fat,
+.fa-thin,
+.fad,
+.fa-duotone,
+.fab,
+.fa-brands {
+  text-rendering: geometricprecision;
+}

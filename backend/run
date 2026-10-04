@@ -1,0 +1,13 @@
+#!/bin/bash
+
+export USER_ID=$(id -u)
+export GROUP_ID=$(id -g)
+
+cat "env.example" | envsubst > ".env"
+
+./docker/create_os_certs
+
+s=$(echo $@ | sed -e "s/^\.\/backend\//\.\//g" -e "s/^backend\//\.\//g")
+
+docker compose run --rm backend $s
+

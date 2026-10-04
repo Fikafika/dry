@@ -1,0 +1,5 @@
+#!/bin/bash
+
+s=$(echo $@ | sed -e "s/^\.\/frontend\//\.\//g" -e "s/^frontend\//\.\//g")
+
+./frontend/test_run rspec $s

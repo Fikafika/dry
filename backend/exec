@@ -1,0 +1,6 @@
+#!/bin/bash
+
+s=$(echo $@ | sed -e "s/^\.\/backend\//\.\//g" -e "s/^backend\//\.\//g")
+
+docker compose exec backend $s
+

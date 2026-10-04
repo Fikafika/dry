@@ -1,0 +1,58 @@
+@import 'cursors';
+
+.edit-in-place {
+  .edit-icon {
+    opacity: 0;
+  }
+
+  .form-control, .hover-show-edit-icon {
+    &:hover {
+      .edit-icon {
+        opacity: 1;
+      }
+    }
+  }
+
+  .drag-over {
+    box-shadow: $input-border-color 0px 1px 1px 0px, $input-border-color 0px 0px 0px 1px;
+  }
+
+  select:not(:focus) {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+  }
+
+}
+
+// specific to theme:
+.edit-in-place {
+  div.form-control {
+    border-color: rgba(255, 255, 255, 0);
+    transition: none;
+  }
+
+  select:not(:focus) {
+    border-color: rgba(255, 255, 255, 0);
+  }
+}
+
+
+$icon-size: 1.5em;
+$icon-font-size: 0.9em;
+
+.item-icon {
+  display: inline-block;
+  background-color: #d4d4d4;
+  width: $icon-size;
+  height: $icon-size;
+  line-height: $icon-size;
+  border-radius: 50% !important;
+  text-align: center;
+  object-fit: 'cover';
+  font-size: $icon-font-size;
+  .fa, .fas, .far, .fal, .fad, .fab {
+    line-height: $icon-size;
+  }
+  vertical-align: top;
+}

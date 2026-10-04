@@ -1,0 +1,93 @@
+---
+en:
+  activerecord:
+    errors:
+      messages:
+        record_invalid: 'Validation failed: %{errors}'
+        restrict_dependent_destroy:
+          has_one: Cannot delete record because a dependent %{record} exists
+          has_many: Cannot delete record because dependent %{record} exist
+      models:
+        dynamic/schema/base:
+          attributes:
+            name:
+              taken_by_attribute: has already been taken by an attribute
+              taken_by_association: has already been taken by an association
+              taken_by_attachment: has already been taken by an attachment
+        dynamic/schema/attribute/base:
+          attributes:
+            attr:
+              attr_is_not_string: The attribute's type is not a text
+            column:
+              limit_exceeded: Column limit exceeded
+        dynamic/schema/association/base:
+          attributes:
+            type:
+              multiple_record_associated: A record has more than one associated record
+        dynamic/schema/feature:
+          attributes:
+            enabled:
+              dependent: Dependent feature %{name} must be enabled
+              missing_requirement: "A requirement is missing: %{requirements}"
+            concerns:
+              missing: Missing concern
+        dynamic/schema/option/base:
+          attributes:
+            value:
+              klass_profile_too_small: "Table named %{table_name} has a profile smaller than %{profile}"
+    exceptions:
+      not_found: "%{model_name} not found"
+      unauthorized: "You do not have the right permissions"
+  errors:
+    format: "%{attribute} %{message}"
+    messages:
+      accepted: must be accepted
+      any_presence: "One of these field must be filled : %{attrs}"
+      either_presence: "Only one of these field must be filled : %{attrs}"
+      blank: can't be blank
+      confirmation: doesn't match %{attribute}
+      empty: can't be empty
+      equal_to: must be equal to %{count}
+      even: must be even
+      exclusion: is reserved
+      greater_than: must be greater than %{count}
+      greater_than_or_equal_to: must be greater than or equal to %{count}
+      inclusion: is not included in the list
+      invalid: is invalid
+      less_than: must be less than %{count}
+      less_than_or_equal_to: must be less than or equal to %{count}
+      model_invalid: 'Validation failed: %{errors}'
+      not_a_number: is not a number
+      not_an_integer: must be an integer
+      odd: must be odd
+      other_than: must be other than %{count}
+      present: must be blank
+      required: must exist
+      taken: has already been taken
+      too_long:
+        one: is too long (maximum is 1 character)
+        other: is too long (maximum is %{count} characters)
+      too_short:
+        one: is too short (minimum is 1 character)
+        other: is too short (minimum is %{count} characters)
+      wrong_length:
+        one: is the wrong length (should be 1 character)
+        other: is the wrong length (should be %{count} characters)
+      invalid_syntax: has invalid syntax
+      invalid_email: is not an email
+      invalid_phone: is not an international phone number
+      invalid_format: has invalid format
+      invalid_siren: is not a valid SIREN number
+      invalid_siret: is not a valid SIRET number
+      invalid_siren_siret: is not a valid SIREN/SIRET number
+      locked: locked
+      content_type_invalid:
+        one: has an invalid content type (authorized content type is %{authorized_human_content_types})
+        other: has an invalid content type (authorized content types are %{authorized_human_content_types})
+      file_size_not_less_than_or_equal_to: file size must be greater than or equal to %{max} (current size is %{file_size})
+      undefined_type: Undefined type
+    template:
+      body: 'There were problems with the following fields:'
+      header:
+        one: 1 error prohibited this %{model} from being saved
+        other: "%{count} errors prohibited this %{model} from being saved"

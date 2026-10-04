@@ -1,0 +1,55 @@
+$custom-palettes: (
+  "pal-blue-gray":  $pal-blue-gray,
+  "pal-dark-teal":  $pal-dark-teal,
+  "pal-dark-green":  $pal-dark-green,
+  "pal-dark-blue":  $pal-dark-blue,
+  "pal-dark-purple":  $pal-dark-purple,
+  "pal-dark-red":  $pal-dark-red,
+  "pal-dark-orange":  $pal-dark-orange,
+  "pal-mustard":  $pal-mustard
+);
+$grays-prefixed: ();
+@each $key, $value in $grays {
+  $grays-prefixed: map-merge($grays-prefixed, ("gray-#{$key}": $value));
+}
+$all-colors: map-merge(
+  map-merge(
+    map-merge(
+      $theme-colors,
+      $colors
+    ),
+    $grays-prefixed
+  ),
+  $custom-palettes
+);
+
+@each $name, $color in $all-colors {
+  .bg-#{$name} {
+    background-color: $color !important;
+    color: color-yiq($color);
+  }
+
+  .btn-#{$name} {
+    background-color: $color !important;
+    color: color-yiq($color);
+  }
+
+  .text-#{$name} {
+    color: $color !important;
+  }
+
+  .badge-#{$name} {
+    background-color: $color;
+    color: color-yiq($color)
+  }
+
+  .badge-#{$name} a {
+    background-color: $color;
+    color: color-yiq($color)
+  }
+
+  .progress-bar-#{$name} {
+    background-color: $color;
+    color: color-yiq($color) !important;
+  }
+}

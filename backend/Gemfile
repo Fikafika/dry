@@ -1,0 +1,158 @@
+source "https://git.uneek.eu/gemstash/private" do
+
+  group :development, :test do
+    gem 'uneek_rspec_support', '>= 0.7.2'
+    gem 'rspec-sql-query-matcher'
+  end
+
+  # Uneek dependencies --------------
+
+  gem 'activerecord-uuid_support', '>= 0.1.11'
+  gem 'dynamic_record', '>= 0.2.94.pre.beta1'
+  gem 'as_deep_json', '>= 0.1.18'
+  gem 'dynamic-form', '>= 0.1.122'
+  gem 'dynamic-layout', '>= 0.1.22'
+  gem 'dynamic-elasticsearch', '>= 0.2.25'
+  gem 'dynamic-datatable', '>= 0.2.25'
+  gem 'dynamic-filters', '>= 0.1.11'
+  gem 'dynamic-cascade', '>= 0.1.28'
+  gem 'dynamic-import', '>= 0.1.88'
+  gem 'dynamic-export', '0.1.19'
+  gem 'dynamic-model_dependency', '>= 0.2.13'
+  gem 'model_dependency', '>= 0.2.27'
+  gem 'dynamic-formula', '>= 0.2.16'
+  gem 'uneek-formula', '>= 0.1.39'
+  gem 'dynamic-workflow', '>= 1.3.12'
+  gem 'document_converter', '>= 1.4.0'
+  gem 'dynamic-doc_gen', '>= 0.6.3'
+  gem 'opensearch-rails-utils', '>= 0.0.3'
+  gem 'sidekiq-batch-join', '>= 0.1.6'
+  gem 'app_path_prefix'
+  gem 'dynamic-cnam', '>= 0.2.1'
+  gem 'dynamic-vcard', '>= 0.1.6'
+  gem 'dynamic-merge', '>= 0.1.15'
+  gem 'dynamic-copy', '>= 0.1.5'
+  gem 'formula_language_server', '>= 0.1.3'
+  gem 'dynamo-cd83-api', '>= 0.1.22'
+  gem 'dynamic-permission', '>= 0.2.7'
+  gem 'uneek_permission', '>= 0.3.3'
+  gem 'uneek_formatting', '>= 0.1.10'
+  gem 'dynamic-record-klass_merger', '>= 0.1.0'
+
+  # Sso and sessions  ---------------
+
+  gem 'uneek_sso_client', '>= 1.4.0'
+  gem 'devise_cas_authenticatable', '7.0.0b'
+  gem 'devise_cas_authenticatable-cas_session_ticket', require: 'devise_cas_authenticatable/cas_session_ticket/active_record'
+  gem 'devise_currentable'
+
+  # dependencies of dynamic_record --------------
+  gem 'dynamic-naming', '>= 0.1.8'
+  gem 'globalize-accessors'
+  gem 'belongs_to_comes_from'
+  gem 'activerecord_where_with_associations'
+  gem 'activerecord-through_polymorphic', '>= 0.1.25'
+  gem 'uneek_email_validator'
+
+  # dependencies of dynamic-import --------------
+  gem 'dynamic-builder', '>= 0.1.24'
+  gem 'has_klass'
+  gem 'uneek-annealer'
+
+  # dependencies of dynamic-form --------------
+  gem 'attr_accessor_with_default_value'
+
+  # dependencies of dynamic-elasticsearch --------------
+  gem 'opensearch-model-heterogeneous_bulk'
+  gem 'opensearch-rails', '1.0.0'
+  gem 'opensearch-model', '1.0.0'
+  gem 'opensearch-api', '2.5.0.uneek'
+
+  # dependencies of dynamic-datatable --------------
+  gem 'opensearch-ruby'
+  gem 'hash_with_num_keys_to_array'
+
+  # dependencies of mode_dependency --------------
+  gem 'activerecord-import-callbacks'
+
+  # dependencies of dynamic-doc_gen --------------
+  gem 'uneek_doc_gen'
+
+  # utilities
+  gem 'fx_collation'
+
+end
+
+source "https://git.uneek.eu/gemstash"
+
+git_source(:github) { |repo| "https://github.com/#{repo}.git" }
+ruby '3.3.4'
+
+# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem 'rails', '~> 8.0.1'
+# Use postgresql as the database for Active Record
+gem 'pg', '>= 1.3.5'
+# Use Puma as the app server
+gem 'puma', '~> 6.4.2'
+# Use SCSS for stylesheets
+#gem 'sass-rails', '>= 6'
+# Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
+gem 'webpacker'
+# Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
+gem 'turbolinks'
+# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
+gem 'jbuilder'
+# Use Redis adapter to run Action Cable in production
+gem 'redis', '>= 5.4.1'
+
+# Reduces boot times through caching; required in config/boot.rb
+gem 'bootsnap', '>= 1.4.2', require: false
+
+# Centralization of locale data collection
+gem 'rails-i18n'
+
+group :development, :test do
+  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'rspec-rails'
+  gem 'database_cleaner'
+  gem 'webmock'
+end
+
+group :development do
+  # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
+  gem 'web-console'
+  gem 'listen', '~> 3.5'
+  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  gem 'spring'
+  gem 'spring-watcher-listen'
+end
+
+# Uneek dependencies --------------
+
+gem 'sidekiq', '>= 6.5.12'
+gem 'sidekiq-throttled', '>= 0.18.0'
+gem 'faraday', '2.12.2'
+gem 'faraday-net_http_persistent' # improve opensearch transport perf
+
+# Sso and sessions  ---------------
+
+gem 'rack-cors', require: 'rack/cors'
+gem 'devise'
+gem 'activerecord-session_store'
+gem 'warning'
+
+# Utilities -----------------------
+
+gem 'kaminari'
+gem 'progress_bar'
+gem 'faker' # used in production by scripts in tools/fake_data
+gem 'data_migrate'
+gem 'mini_magick'
+gem 'image_processing'
+gem 'sprockets-rails'
+gem 'countries'
+gem 'tzinfo-data'
+gem 'money'
+
+# ---------------------------------

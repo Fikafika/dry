@@ -1,0 +1,46 @@
+//$toolbar-height-formula: "(#{$btn-font-size * $btn-line-height + 2 * $btn-padding-y} + #{2 * $btn-border-width})";
+//$toolbar-height: calc(#{$toolbar-height-formula});
+
+$toolbar-height-formula: $font-size-base * 2 + 1 * $spacer + $btn-padding-y; //50px;
+$toolbar-height: $toolbar-height-formula;
+
+.toolbar {
+  height: $toolbar-height;
+
+  &-offset-top {
+    margin-top: $toolbar-height;
+
+    &.vh-100-with-offset {
+      height: calc(100vh - #{$toolbar-height-formula});
+      overflow: hidden;
+    }
+  }
+
+
+  &-offset-bottom {
+    margin-bottom: $toolbar-height;
+    &-fixed {
+      padding-bottom: $toolbar-height;
+    }
+  }
+
+  &-title {
+    font-size: $font-size-base * 1.5;
+  }
+}
+
+@media only screen and (max-width: breakpoint-min(md)) {
+  .vh-100-with-offset-variable {
+    margin-top: $toolbar-height;
+    height: calc(100vh - #{$toolbar-height});
+    overflow: hidden;
+  }
+}
+
+@media only screen and (min-width: breakpoint-min(md)) {
+  .vh-100-with-offset-variable {
+    margin-top: $toolbar-height * 2;
+    height: calc(100vh - #{$toolbar-height * 2});
+    overflow: hidden;
+  }
+}

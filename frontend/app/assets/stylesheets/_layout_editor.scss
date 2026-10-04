@@ -1,0 +1,19 @@
+.layout-editor-item{
+  padding: $list-group-item-padding-y $list-group-item-padding-x;
+  margin-bottom: -$list-group-border-width;
+  color: $list-group-color;
+  background-color: $list-group-bg;
+  border: $list-group-border-width solid $list-group-border-color;
+
+  @include hover {
+    z-index: 1; // Place hover/focus items above their siblings for proper border styling
+    color: $list-group-action-hover-color;
+    text-decoration: none;
+    background-color: $list-group-hover-bg;
+  }
+
+  &.active {
+    color: $list-group-action-active-color;
+    background-color: $list-group-action-active-bg;
+  }
+}

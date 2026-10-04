@@ -1,0 +1,28 @@
+$modal-bottom-panel-transform: translate(0, 0) !default;
+$modal-bottom-panel-transition: .3s ease-out !default;
+
+#bottom-panel {
+  .bottom-modal.modal-dialog {
+    @include transition($modal-bottom-panel-transition);
+    position:fixed;
+    top:auto;
+    right:auto;
+    left:auto;
+    bottom:0;
+    transform: $modal-bottom-panel-transform;
+    transform-origin: bottom center;
+  }
+}
+
+#display-mode-modal {
+  .bottom-modal.modal-dialog {
+    @include transition($modal-bottom-panel-transition);
+    position:fixed;
+    top:auto;
+    right:auto;
+    left:auto;
+    bottom:0;
+    transform: $modal-bottom-panel-transform;
+    transform-origin: bottom center;
+  }
+}

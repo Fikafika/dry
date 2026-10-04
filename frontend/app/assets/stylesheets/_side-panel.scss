@@ -1,0 +1,82 @@
+$modal-side-panel-left-transform: translate(-100%, 0) !default;
+$modal-side-panel-right-transform: translate(100%, 0) !default;
+$modal-side-panel-transition: .3s ease-out !default;
+$modal-side-panel-zindex: 1037; // under left menu
+
+
+$fa-fw-em: 1.25;
+$fa-2x-coeff: 2;
+$expanding-side-bar-width: ($font-size-base * $fa-fw-em * $fa-2x-coeff) + 2 * $btn-padding-x;
+$modal-side-panel-left-panel-left-margin: calc(#{$expanding-side-bar-width} - 1px); // why there is a 1px space without this substraction ?
+
+@mixin sidepanel($size, $modal-width) {
+
+  &-#{$size} {
+    // max-width: 100%;
+    .modal-dialog {
+      width: $modal-width;
+    }
+
+    &[data-backdrop=false] {
+      width: $modal-width;
+      max-width: 90%;
+    }
+  }
+}
+
+.modal.side-panel {
+  width: 100%;
+
+  &.under-expanding-side-bar {
+    z-index: $modal-side-panel-zindex;
+  }
+
+  .modal-dialog {
+    @include transition($modal-side-panel-transition);
+  }
+
+  &-left {
+    & .modal-dialog {
+      transform: $modal-side-panel-left-transform;
+    }
+    &[data-backdrop=false] {
+      left: 0;
+      right: unset;
+      & .modal-dialog {
+        width: 100%;
+      }
+    }
+
+    &.under-expanding-side-bar {
+      @media only screen and (min-width: breakpoint-min(md)) {
+        margin-left: $modal-side-panel-left-panel-left-margin;
+      }
+    }
+  }
+  &-right {
+    & .modal-dialog {
+      transform: $modal-side-panel-right-transform;
+    }
+    &[data-backdrop=false] {
+      right: 0;
+      left: unset;
+      & .modal-dialog {
+        width: 100%;
+      }
+    }
+  }
+
+  @include sidepanel('sm', 400px);
+  @include sidepanel('md', 900px);
+  &.show .modal-dialog {
+    transform: $modal-show-transform;
+
+  }
+  &.fade {
+    @include transition(opacity $modal-side-panel-transition);
+    &:not(.show) {
+      opacity: 1;
+    }
+  }
+
+}

@@ -1,0 +1,17 @@
+$photo-button-size: 3em;
+$photo-button-font-size: 2.8em;
+
+.photo-button {
+  display: inline-block;
+  background-color: #d4d4d4;
+  width: $photo-button-size;
+  height: $photo-button-size;
+  line-height: $photo-button-size;
+  text-align: center;
+  object-fit: cover;
+  font-size: $photo-button-font-size;
+  .fa, .fas, .far, .fal, .fad, .fab {
+    line-height: $photo-button-size;
+  }
+  vertical-align: top;
+}

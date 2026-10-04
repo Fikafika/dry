@@ -1,0 +1,110 @@
+source 'https://git.uneek.eu/gemstash/private' do
+  gem 'hyper_resource', '>= 0.1.88'
+  gem 'app_path_prefix', '>= 1.1.1'
+  gem 'as_deep_json', '>= 0.1.11'
+  gem 'bootstrap_editor', '>= 0.0.12'
+  gem 'uneek-rison-rb', '0.1.0-uneek1'
+  gem 'devise_cas_authenticatable', '5.0.0b'
+  gem 'devise_cas_authenticatable-cas_session_ticket', require: 'devise_cas_authenticatable/cas_session_ticket/active_record'
+  gem 'uneek_formatting', '>= 0.1.10'
+
+  group :test do
+    gem 'opal-webmock', '>= 0.1.3'
+    gem 'fx_collation'
+  end
+
+  gem 'rails-hyperstack', '1.0.uneek1.12', require: false
+  gem 'hyperstack-config', '1.0.uneek1.12'
+  gem 'hyper-router', '1.0.uneek1.12'
+  gem 'hyper-component', '1.0.uneek1.12'
+  gem 'hyper-state', '1.0.uneek1.12'
+  gem 'hyper-operation', '1.0.uneek1.12'
+end
+
+source 'https://git.uneek.eu/gemstash/'
+git_source(:github) { |repo| "https://github.com/#{repo}.git" }
+
+ruby '3.3.4'
+
+# Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
+gem 'rails', '~> 7.0'
+# Sprockets is now an optional dependency of rails
+gem 'sprockets-rails'
+# Use postgresql as the database for Active Record
+gem 'pg', '>= 1.1', '< 2.0'
+# Use Puma as the app server
+gem 'puma', '~> 6.4.2'
+# Use SCSS for stylesheets
+gem 'sass-rails', '>= 6'
+# Use Uglifier as compressor for JavaScript assets
+gem 'uglifier', '>= 1.3.0'
+# Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
+gem 'shakapacker', '8.0.2'
+
+# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
+gem 'jbuilder', '~> 2.7'
+# Use Redis adapter to run Action Cable in production
+gem 'redis', '~> 4.0'
+# Use Active Model has_secure_password
+# gem 'bcrypt', '~> 3.1.7'
+
+# Use Active Storage variant
+# gem 'image_processing', '~> 1.2'
+
+# Reduces boot times through caching; required in config/boot.rb
+gem 'bootsnap', '>= 1.17', require: false
+gem 'globalid', '>= 1.0' # fix NameError: uninitialized class variable @@schemes in URI
+
+group :development, :test do
+  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'rspec-rails'
+  gem 'capybara', '>= 3.39.2'
+  gem 'selenium-webdriver', '4.25.0' # chrome 112
+  gem 'method_source'
+end
+
+group :development do
+  # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
+  gem 'web-console', '>= 4.1.0'
+  # Display performance information such as SQL time and flame graphs for each request in your browser.
+  # Can be configured to work on production as well see: https://github.com/MiniProfiler/rack-mini-profiler/blob/master/README.md
+  #gem 'rack-mini-profiler', '~> 2.0'
+  gem 'listen', '~> 3.3'
+  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  gem 'spring'
+  gem 'foreman'
+end
+
+group :test do
+  gem 'fx'
+end
+
+# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+gem 'opal', '1.8.2'
+gem 'opal-jquery', '>= 0.5.2'
+
+gem 'i18n-js', '>= 3.9.2', '< 4'
+gem 'bootstrap', '~> 4.3.1'
+gem 'font-awesome-sass', '>= 6.1.2'
+gem 'bootstrap4-datetime-picker-rails'
+gem 'parse-cron', '~> 0.1.4'
+
+gem 'rack', '>= 2.2.9' # like rails 7.1
+
+gem 'rack-cors', require: 'rack/cors'
+
+gem 'devise'
+gem 'activerecord-session_store'
+
+gem 'uuid7'
+gem 'rexml' # because removed from ruby 3 but used by devise_cas_authenticatable
+
+gem 'terser'
+
+gem 'bigdecimal' # TODO remove with rails 8
+gem 'mutex_m' # TODO remove with rails 8
+
+gem 'http_parser', require: true # fix bug with em-http-request

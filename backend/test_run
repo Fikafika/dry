@@ -1,0 +1,11 @@
+#!/bin/bash
+
+export USER_ID=$(id -u)
+export GROUP_ID=$(id -g)
+
+cat "env.example" | envsubst > ".env"
+echo "DYNAMO_ROOT_PATH=$(pwd)" >> ".env"
+
+./docker/create_os_certs
+
+docker compose -f docker-compose.backend.test.yml run --rm backend $@

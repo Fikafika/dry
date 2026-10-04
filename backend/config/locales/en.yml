@@ -1,0 +1,18 @@
+---
+en:
+  shared:
+    _yes: 'Yes'
+    _no: 'No'
+  notification:
+    titles:
+      doc_gen: "%{template} on %{klass}"
+      model_dependency: "Compute dependencies of %{klasses}"
+      elasticsearch: "Indexing of %{klasses}"
+      formula: "Compute formula of %{klasses}"
+      normalization: "Normalization of %{klasses}"
+  phone:
+    titles:
+      synchronize: 'Synchronization of phones data for %{klass}'
+  company:
+    titles:
+      match_organizations: 'Matching %{klass} to organizations'

@@ -1,0 +1,38 @@
+#!/bin/bash
+
+max_user_watches=`cat /proc/sys/fs/inotify/max_user_watches`
+if [ "$max_user_watches" -lt "524288" ]; then
+  echo "increase max files inotify can watch"
+  sudo sysctl fs.inotify.max_user_watches=524288
+  sudo sysctl fs.inotify.max_queued_events=999999
+  sudo sysctl -p
+fi
+
+export USER_ID=$(id -u)
+export GROUP_ID=$(id -g)
+
+cat "env.example" | envsubst > ".env"
+
+echo "DYNAMO_ROOT_PATH=$(pwd)" >> ".env"
+
+mkdir -p frontend/tmp/cache/test-assets
+mkdir -p frontend/tmp/cache/assets
+
+if [[ -n `docker ps | grep 'Up' | grep 'dynamo-frontend-1'` ]]; then # if frontend running
+  echo "stop all dynamo containers"
+  ./stop
+  rm frontend/public/assets/.sprockets-manifest-* # force recompile assets
+fi
+
+if [ -z `docker ps -q --no-trunc | grep $(docker compose -f docker-compose.frontend.test.yml ps -q frontend_test_server)` ]; then
+ echo "start frontend test"
+ docker compose -f docker-compose.frontend.test.yml up --build --detach
+ sleep 1
+fi
+
+while [ -z `docker ps -q --no-trunc | grep $(docker compose -f docker-compose.frontend.test.yml ps -q frontend_test_server)` ]; do
+ echo "wait"
+ sleep 2
+done
+
+docker compose -f docker-compose.frontend.test.yml run --rm frontend_test $@

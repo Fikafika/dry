@@ -1,0 +1,23 @@
+table.dataTable {
+
+  $icon-size: 1.5em;
+  $icon-font-size: 0.7em;
+
+
+  .cell-item-icon {
+    display: inline-block;
+    background-color: #d4d4d4;
+    width: $icon-size;
+    height: $icon-size;
+    line-height: $icon-size;
+    border-radius: 50% !important;
+    text-align: center;
+    object-fit: cover;
+    font-size: $icon-font-size;
+    .fa, .fas, .far, .fal, .fad, .fab {
+      line-height: $icon-size;
+    }
+    vertical-align: text-bottom;
+  }
+
+}

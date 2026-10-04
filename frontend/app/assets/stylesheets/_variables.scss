@@ -1,0 +1,28 @@
+$pal-blue-gray:  #34495e !default;
+$pal-dark-teal: #16a085 !default;
+$pal-dark-green: #27ae60 !default;
+$pal-dark-blue: #2980b9 !default;
+$pal-dark-purple: #8e44ad !default;
+$pal-dark-red: #c0392b !default;
+$pal-dark-orange: #d35400 !default;
+$pal-mustard: #f39c12 !default;
+// support dark themes
+
+$light-yiq: color-yiq($body-bg, $light, $dark) !default;
+$dark-yiq: color-yiq($body-bg, $dark, $light) !default;
+
+$colors: map-merge(
+  $colors,
+  (
+    "light-yiq":       $light-yiq,
+    "dark-yiq":       $dark-yiq,
+  ),
+);
+
+$theme-colors: map-merge(
+  $theme-colors,
+  (
+    "light-yiq":       $light-yiq,
+    "dark-yiq":       $dark-yiq,
+  )
+);

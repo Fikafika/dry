@@ -1,0 +1,1952 @@
+fr:
+  shared:
+    new: Nouveau
+    save: Enregistrer
+    cancel: Annuler
+    edit: Modifier
+    delete: Supprimer
+    duplicate: Dupliquer
+    export: Exporter
+    clear: Effacer
+    reload: Recharger
+    refresh: Actualiser
+    confirm: Confirmer
+    select: Sélectionner
+    close: Fermer
+    finish: Terminer
+    browse: Parcourir
+    add: Ajouter
+    remove: Retirer
+    merge: Fusionner
+    nothing_selected: Aucun objet selectionné
+    select_all: Tout sélectionner
+    deselect_all: Tout désélectionner
+    clear_all: Tout effacer
+    ask_for_confirmation: Êtes-vous sûr de vouloir effectuer cette action ?
+    _yes: Oui
+    _no: Non
+    and: Et
+    or: Ou
+    error: Une erreur s'est produite.
+    error_messages: Veuillez contacter support@kosmopolead.com
+    object: Objet
+    file: Fichier
+    back: Retour
+    next: Suivant
+    previous: Précédent
+    start: Démarrer
+    stop: Arrêter
+    suspend: Mettre en pause
+    continue: Continuer
+    retry: Recommencer
+    maximize: Agrandir
+    fullscreen: Plein écran
+    download: Télécharger
+    empty: Vide
+    none: Aucun
+    none_m: Aucun
+    none_f: Aucune
+    none_mp: Aucuns
+    none_fp: Aucunes
+    all_m: Tous
+    all_f: Toutes
+    undefined: Non défini
+    show_less: Voir moins
+    show_more: Voir plus
+    rename: Renommer
+    apply: Appliquer
+    search: Chercher
+    configure: Configurer
+    application_name: 'Kosmopolead CRM'
+    mass_send: Envoi multiple
+    loading_more: "Chargement ..."
+    no_more_results: Plus aucuns résultats
+    button_to_top: Retour en haut
+    required: Requis
+  datetime:
+    seconds: Secondes
+    minutes: Minutes
+    hours: Heures
+    days: Jours
+    months: Mois
+    years: Années
+  errors:
+    messages:
+      record_already_used: déjà utilisé
+      duplicate_target: Un même champ cible ne peut pas recevoir deux champs sources.
+      cycle_detected: Cycle détecté entre les correspondances enfants.
+      incompatible_child_klass: La table des enfants ne correspond pas entre la source et la cible.
+      klass_mismatch: La correspondance enfant choisie ne correspond pas aux tables des sous-collections.
+      must_be_has_many: doit être une association multiple (has_many)
+      not_found: introuvable
+      not_allowed_on_attachment: ne peut pas être utilisée sur une pièce jointe
+      not_allowed_on_polymorphic: ne peut pas être utilisée sur une association polymorphe
+      only_allowed_on_attribute: n'est possible que vers un attribut simple
+      not_an_enum_value: doit être une des valeurs de la liste (%{values})
+      invalid_syntax: syntaxe de formule invalide
+  activerecord:
+    models:
+      dynamic/cascade:
+        one: Clé de dédoublonnage
+        other: Clés de dédoublonnage
+      dynamic/schema:
+        one: Schéma
+        other: Schémas
+      dynamic/schema/klass:
+        one: Table
+        other: Tables
+      dynamic/schema/attribute/base:
+        one: Attribut
+        other: Attributs
+      dynamic/schema/attribute/string:
+        one: Texte
+        other: Texte
+      dynamic/schema/attribute/text:
+        one: Texte long
+        other: Textes longs
+      dynamic/schema/attribute/time_of_day:
+        one: Heure
+        other: Heures
+      dynamic/schema/attribute/integer:
+        one: Nombre entier
+        other: Nombres entiers
+      dynamic/schema/attribute/float:
+        one: Nombre décimal
+        other: Nombres décimals
+      dynamic/schema/attribute/boolean:
+        one: Booléen
+        other: Booléens
+      dynamic/schema/attribute/date:
+        one: Date
+        other: Dates
+      dynamic/schema/attribute/date_time:
+        one: Date et Heure
+        other: Dates et Heures
+      dynamic/schema/attribute/phone:
+        one: Téléphone
+        other: Téléphones
+      dynamic/schema/attribute/siret:
+        one: Siret
+        other: Sirets
+      dynamic/schema/attribute/translatable_string:
+        one: Texte traduit
+        other: Textes traduits
+      dynamic/schema/attribute/translatable_text:
+        one: Texte long traduit
+        other: Textes longs traduits
+      dynamic/schema/attribute/uuid:
+        one: Identifiant unique
+        other: Identifiants uniques
+      dynamic/schema/attribute/enum:
+        one: Liste
+        other: Listes
+      dynamic/schema/attribute/enum/value:
+        one: Valeur
+        other: Valeurs
+
+      dynamic/schema/association/base:
+        one: Association
+        other: Associations
+      dynamic/schema/association/belongs_to:
+        one: Simple
+        other: Simples
+      dynamic/schema/association/has_many:
+        one: Multiple
+        other: Multiples
+
+      dynamic/schema/attachment/base:
+        one: Pièce jointe
+        other: Pièces jointes
+      dynamic/schema/attachment/has_one:
+        one: Simple
+        other: Simples
+      dynamic/schema/attachment/has_many:
+        one: Multiple
+        other: Multiples
+      dynamic/schema/attachment/variant:
+        one: Variation
+        other: Variations
+
+      dynamic/schema/cascade/base:
+        one: Clé de dédoublonnage
+        other: Clés de dédoublonnage
+
+      dynamic/schema/feature:
+        one: Fonctionnalité
+        other: Fonctionnalités
+      dynamic/schema/concern:
+        one: Module appliqué
+        other: Modules appliqués
+      dynamic/schema/migration/base:
+        one: Migration
+        other: Migrations
+      dynamic/schema/validation/base:
+        one: Validation
+        other: Validations
+      dynamic/schema/validation/presence:
+        one: Présence
+        other: Présences
+      dynamic/schema/validation/any_presence:
+        one: Présence Quelconque
+        other: Présences Quelconque
+      dynamic/schema/validation/either_presence:
+        one: Présence Atlerné
+        other: Présences Alterné
+      dynamic/schema/validation/format/base:
+        one: Format
+        other: Formats
+      dynamic/schema/validation/format/email:
+        one: Email
+        other: Emails
+      dynamic/schema/validation/format/phone_number:
+        one: Téléphone (format international et numéros court)
+        other: Téléphones (format international et numéros court)
+      dynamic/schema/validation/format/international_phone_number:
+        one: Téléphone (format international strict)
+        other: Téléphones (format international strict)
+      dynamic/schema/validation/format/siret:
+        one: SIRET
+        other: SIRET
+      dynamic/schema/validation/format/siren:
+        one: SIREN
+        other: SIREN
+      dynamic/schema/validation/format/siren_siret:
+        one: SIREN / SIRET
+        other: SIREN / SIRET
+      dynamic/schema/validation/comparison/value:
+        one: Comparaison (valeur)
+        other: Comparaisons (valeur)
+      dynamic/schema/validation/comparison/attribute:
+        one: Comparaison (attribut)
+        other: Comparaisons (attribut)
+
+      dynamic/schema/normalization/base:
+        one: Normalisation
+        other: Normalisations
+      dynamic/schema/normalization/capitalize_all_words:
+        one: Première lettre de chaque mot en majuscule
+        other: Première lettre de chaque mot en majuscule
+      dynamic/schema/normalization/capitalize_first_word:
+        one: Première lettre en majuscule
+        other: Première lettre en majuscule
+      dynamic/schema/normalization/chomp:
+        one: Suppression des retours chariots et saut de ligne en fin de saisie
+        other: Suppression des retours chariots et saut de ligne en fin de saisie
+      dynamic/schema/normalization/lowercase:
+        one: Toutes les lettres en minuscules
+        other: Toutes les lettres en minuscules
+      dynamic/schema/normalization/mail:
+        one: Email
+        other: Emails
+      dynamic/schema/normalization/phone_number:
+        one: Téléphone
+        other: Téléphones
+      dynamic/schema/normalization/siret:
+        one: SIRET / SIREN
+        other: SIRET / SIREN
+      dynamic/schema/normalization/strip:
+        one: Suppression des espaces en début et fin
+        other: Suppression des espaces en début et fin
+      dynamic/schema/normalization/upcase:
+        one: Toutes les lettres en majuscules
+        other: Toutes les lettres en majuscules
+
+      dynamic/schema/sequence:
+        one: Séquence
+        other: Séquences
+
+      dynamic/form:
+        one: Formulaire
+        other: Formulaires
+      dynamic/form/element/basic/base:
+        one: Composant
+        other: Composants
+      dynamic/form/element/basic/text:
+        one: Texte
+        other: Textes
+      dynamic/form/element/layout/base:
+        one: Affichage
+        other: Affichages
+      dynamic/form/element/layout/column:
+        one: Colonne
+        other: Colonnes
+      dynamic/form/element/layout/condition:
+        one: Condition
+        other: Conditions
+      dynamic/form/element/layout/container:
+        one: Conteneur
+        other: Conteneurs
+      dynamic/form/element/layout/row:
+        one: Ligne
+        other: Lignes
+      dynamic/form/element/layout/page:
+        one: Page
+        other: Pages
+      dynamic/form/element/layout/additional_fields_container:
+        one: Conteneur de champs additionnels
+        other: Conteneurs de champs additionnels
+      dynamic/form/element/layout/section:
+        one: Section
+        other: Sections
+      dynamic/form/element/control/add_button:
+        one: "Bouton d'ajout"
+        other: "Boutons d'ajout"
+      dynamic/form/element/control/print:
+        one: Imprimer
+        other: Imprimer
+      dynamic/form/element/control/navigation:
+        one: Boutons de navigation
+        other: Boutons de navigation
+
+      dynamic/layout:
+        one: Agencement
+        other: Agencements
+
+      dynamic/theme:
+        one: Thème
+        other: Thèmes
+
+      dynamic/dashboard:
+        one: Tableau de bord
+        other: Tableaux de bord
+
+      dynamic/chart/base:
+        one: Graphique
+        other: Graphiques
+      dynamic/chart/pie:
+        one: Camembert
+        other: Camemberts
+      dynamic/chart/row:
+        one: Histogramme horizontal
+        other: Histogrammes horizontaux
+      dynamic/chart/bar:
+        one: Histogramme vertical
+        other: Histogrammes verticaux
+      dynamic/chart/sunburst:
+        one: Graphique rayons de soleil
+        other: Graphiques rayons de soleil
+      dynamic/chart/bubble:
+        one: Graphique à bulles
+        other: Graphiques à bulles
+      dynamic/chart/scatter_plot:
+        one: Diagramme de dispersion
+        other: Diagrammes de dispersion
+      dynamic/chart/box_plot:
+        one: Boîte à moustaches
+        other: Boîtes à moustaches
+      dynamic/chart/heat_map:
+        one: Carte de fréquentation
+        other: Cartes de fréquentation
+      dynamic/chart/composite:
+        one: Diagramme composite
+        other: Diagrammes composites
+      dynamic/chart/series:
+        one: Graphe de séries
+        other: Graphes de séries
+      dynamic/chart/geo_choropleth:
+        one: Carte choropleth
+        other: Cartes choropleth
+      dynamic/chart/data_count:
+        one: Compteur
+        other: Compteurs
+      dynamic/chart/data_grid:
+        one: Grille de données
+        other: Grilles de données
+      dynamic/chart/data_table:
+        one: Tableau de données
+        other: Tableau de données
+      dynamic/chart/table:
+        one: Tableau
+        other: Tableaux
+      dynamic/chart/bubble_overlay:
+        one: Calque de bulles
+        other: Calques de bulles
+      dynamic/chart/number_display:
+        one: Affichage d'un nombre
+        other: Affichages d'un nombre
+      dynamic/chart/line:
+        one: Courbe
+        other: Courbes
+
+      dynamic/elasticsearch:
+        one: Moteur de recherche
+        other: Moteurs de recherche
+
+      dynamic/import/setting:
+        one: 'Import de données'
+        other: 'Imports de données'
+
+      dynamic/import/transformation/create_column:
+        one: Ajout de colonne
+        other: Ajouts de colonne
+      dynamic/import/transformation/split_cell:
+        one: Découpage de cellule
+        other: Découpages de cellule
+      dynamic/import/transformation/encoder:
+        one: Conversion de l'encodage de caractère
+        other: Conversion de l'encodage de caractère
+      dynamic/import/transformation/windows_to_unix_end_of_line:
+        one: Remplacement des fins de ligne Windows vers Unix
+        other: Remplacement des fins de ligne Windows vers Unix
+      dynamic/import/transformation/mac_to_unix_end_of_line:
+        one: Remplacement des fins de ligne Mac vers Unix
+        other: Remplacement des fins de ligne Mac vers Unix
+      dynamic/import/transformation/escape_quote:
+        one: Échappement des guillemets doubles
+        other: Échappement des guillemets doubles
+
+      dynamic/query:
+        one: Requête
+        other: Requêtes
+      dynamic/query/base:
+        one: Requête
+        other: Requêtes
+      dynamic/query/saved:
+        one: Requête enregistrée
+        other: Requêtes enregistrées
+      dynamic/query/current:
+        one: Requête en cours
+        other: Requêtes en cours
+
+      dynamic/doc_gen/template:
+        one: Modèle de document
+        other: Modèles de document
+      dynamic/doc_gen/docx_template:
+        one: DOCX
+        other: DOCX
+      dynamic/doc_gen/wrapper_template:
+        one: Enveloppeur
+        other: Enveloppeurs
+      dynamic/doc_gen/merge/pdf_template:
+        one: Fusion PDF
+        other: Fusions PDF
+      dynamic/doc_gen/merge/zip_template:
+        one: ZIP
+        other: ZIPs
+      dynamic/doc_gen/merge/file:
+        one: Fichier de fusion
+        other: Fichiers de fusion
+      dynamic/doc_gen/merge/static_file:
+        one: Fichier statique
+        other: Fichiers statique
+      dynamic/doc_gen/merge/attribute_file:
+        one: Attribut
+        other: Attributs
+      dynamic/doc_gen/merge/template_file:
+        one: Modèle de document
+        other: Modèle de document
+
+      dynamic/mail_hosting/rule:
+        one: Règle de rattachement des messages
+        other: Règles de rattachement des messages
+      dynamic/merge/setting:
+        one: Fusion d'objet
+        other: Fusion des objets
+      dynamic/copy/mapping:
+        one: Correspondance de recopie
+        other: Correspondances de recopie
+      dynamic/copy/mapping/has_many_rule:
+        one: Règle de sous-collection
+        other: Règles de sous-collection
+      dynamic/copy/setting:
+        one: Recopie
+        other: Recopies
+      dynamic/export/setting:
+        one: Export de données
+        other: Exports de données
+
+      dynamic/knewsletter/recipient_path:
+        one: Chemin de destinataire de newsletter
+        other: Chemins de destinataire de newsletter
+
+      dynamic/knewsletter:
+        one: Chemin de destinataire de newsletter
+        other: Chemins de destinataire de newsletter
+
+      dynamic/email_order:
+        one: Email de contact
+        other: Emails de contact
+
+      dynamic/redirection:
+        one: Redirection
+        other: Redirections
+
+      dynamic/transaction/applicable_amount/rule:
+        one: "Règle d'application de montant"
+        other: "Règles d'application de montant"
+
+      uneek_permission/rule:
+        one: Contrôle d'accès
+        other: Contrôle d'accès
+
+      external_source: Source externe
+
+    attributes:
+      dynamic/schema/klass:
+        gender_human_name: Genre du nom
+        name_attribute: Nom de l'objet
+        photo_attachment: Illustration de l'objet
+        plural_human_name: Pluriel du nom
+        table_profile: Profil de table
+        technical_name_text: "Nom technique: %{technical_name}"
+        superklass: Table parente
+      dynamic/schema/attribute/base:
+        protocols: Protocole du lien
+        index: Colonne indexée
+        sequences: Séquences
+        validations: Validations
+        normalizations: Normalisations
+        enum_type_value_text: "Liste des valeurs"
+        technical_name: Nom technique
+        editor: Type d'éditeur
+        default_value: Valeur par défaut
+      dynamic/schema/attribute/float:
+        format_options:
+          symbol:
+            label: Symbole
+            placeholder: ex. kg, m
+          currency:
+            label: Devise
+          precision:
+            label: Décimales
+      dynamic/schema/attribute/date:
+        format_options:
+          precision:
+            label: Niveau de précision
+            help: Détermine ce que l'utilisateur saisit et ce qui est enregistré. Les parties non saisies prennent leur valeur minimale. Le niveau choisi s'applique aussi à l'affichage lorsqu'un format est sélectionné.
+            year: Année
+            month: Année et mois
+            day: Année, mois et jour
+            hour: Date et heure
+            minute: Date, heure et minutes
+            second: Date, heure, minutes et secondes
+      dynamic/schema/association/base:
+        default_elasticsearch_filters: Filtres par défaut
+        default_elasticsearch_order: Tri par défaut
+        dependent_destroy: Supprimer l'objet propriétaire supprime le(s) objet(s) cible(s)
+        inverse_of_id: Inverse de
+        target_klass_id: Table
+        through_id: À travers
+        touch_target: "Modifier l'objet change la date de modification de l'objet cible"
+        default_value: Valeur par défaut
+      dynamic/schema/attachment/base:
+        variants: Variations
+        extensions: Extensions
+        size_limit: Taille limite
+      dynamic/schema/attachment/variant:
+        resize_type: Redimensioner
+        resize_width: Largeur
+        resize_height: Hauteur
+        crop: Découper
+        crop_left: Gauche
+        crop_top: Haut
+        crop_width: Largeur
+        crop_height: Hauteur
+        format: Format
+        quality: Qualité
+      dynamic/schema/validation/base:
+        attr: "Attribut"
+        attrs: "Attributs"
+        comparison_attr: "Attribut à comparer"
+        comparison_value: "Valeur à comparer"
+        operator: "Opérateur"
+        values: "Valeurs"
+      dynamic/schema/normalization/base:
+        attr: "Attribut"
+        attrs: "Attributs"
+        options:
+          with_dash: "Prendre en compte les tirets"
+      dynamic/schema/sequence:
+        condition_value_id: "="
+        condition_attr_id: "Condition"
+        format_example: Format
+        part2_length: Puis
+        part3_length: Puis
+        prefix: Préfixe
+        start_value: "Valeur de départ"
+        suffix: Suffixe
+      dynamic/schema/concern:
+        klass_id: Table
+        concern_template: Module
+      dynamic/schema/option/base:
+        value: Valeur
+      dynamic/form:
+        association_klass_name: Table
+        association_name: Association
+        klass_name: Table
+        mode: Mode de rendu
+        theme_id: Thème publique
+        evaluate_access_with_formula: Évaluer l'accès au formulaire avec la formule
+        access_formula: Formule d'accès
+        access_formula_record_type: Table évaluée par la formule
+        access_formula_record_id: Enregistrement évalué par la formule
+        end_date: Date de fin
+        start_date: Date de début
+        text_before_start_date: Message avant la date de début
+        text_after_end_date: Message après la date de fin
+        final_redirect_url: Lien de redirection finale
+        async_submission: Soumettre en tâche de fond
+        auto_submission: Soumettre automatiquement à l'affichage de la première page
+        on_load_script: Script executé au chargement
+      dynamic/form/element/base:
+        default_value: Valeur par défaut
+        default_value_record: Valeur par défaut
+        default_value_records: Valeur par défaut
+        default_value_formula: Formule de valeur par défaut
+        record_type_for_default_value_formula: Objet évalué par la formule
+        disabled: Désactivé
+        editor: Type d'éditeur
+        errors_from: Erreurs supplémentaires
+        filters: Filtrage de la recherche
+        force_default_value: Valeur par défaut forcée
+        help: Aide
+        label: Label
+        possible_values: Valeurs personnalisées
+        requirement: Pré-requis
+        show_label: Afficher le label
+        show_value: Afficher les valeurs
+        text: Texte
+        translated_default_value: Valeur par défaut
+        value_position: Position des valeurs
+        watermark: Filigrane
+        values_limit: Limite des valeurs
+        compact: Compact
+      dynamic/form/element/basic/text:
+        attachments: Pièces jointes
+      dynamic/form/element/possible_value:
+        text: Label
+        value: Valeur
+        value_record: Valeur
+      dynamic/form/element/association/belongs_to:
+        create_record_when_not_changed: Toujours créer l'objet associé manquant
+      dynamic/form/element/association/has_many:
+        target_klass_names: 'Tables'
+        create_record_when_not_changed: Toujours créer les objets associés manquants
+      dynamic/layout/element:
+        component_params: Paramètres
+        component_params_converter_type: Convertisseur des paramètres
+
+      dynamic/form/element/layout/section:
+        title: Titre
+        title_tag: Taille
+        style: Couleur
+        collapsible: Pliable
+        collapsible_help: Rendre pliable
+        show_header: En-tête
+        show_border: Bordure
+        border_color: Couleur du bordure
+        behavior_title: Comportement
+        appearance_title: En-tête et bordure
+        css_classes_title: Mise en forme
+        section_class: Section
+        header_class: En-tête
+        body_class: Contenu
+        full_width: Largeur complète
+        margin_title: "Marges"
+        margin_top: "Marge supérieure"
+        margin_bottom: "Marge inférieure"
+      community:
+        theme_id: Thème
+
+      dynamic/theme:
+        community_appearance: Apparence de l'application
+
+      dynamic/menu/item:
+        link: Lien
+        klass_name: Table
+        mode: Mode de visualisation
+        action: Action
+        label: Texte
+        layout: Affichage
+        icon: Icone
+        parameters: Paramètres
+
+      dynamic/chart/base:
+        groups: Groupes
+        x_groups: Groupes de l'axe X
+        y_groups: Groupes de l'axe Y
+        render_human_name: Afficher le titre
+        human_name: Titre
+        render_legend: Afficher la legende
+        legend_x: Position horizontale de la legende
+        legend_y: Position verticale de la legende
+        render_title: Afficher les infobulles
+        title: Infobulle
+        render_label: Afficher les étiquetes
+        label: Étiquette
+        render_horizontal_grid_lines: Afficher les lignes horizontales
+        render_vertical_grid_lines: Afficher les lignes verticales
+        x_axis_ticks: Nombre d'encoches de l'axe X
+        y_axis_ticks: Nombre d'encoches de l'axe Y
+        width: Largeur
+        height: Hauteur
+        min_width: Largeur minimale
+        min_height: Hauteur minimale
+        no_min_height: Pas de hauteur minimale
+        margins_top: Marge en haut
+        margins_right: Marge à droite
+        margins_bottom: Marge en bas
+        margins_left: Marge à gauche
+        use_view_box_resizing: Redimensionnement automatiquement
+        gap: Espace
+        inner_radius: Rayon interne
+        rotation_degree_x: "Angle de rotation de l’axe X"
+        rotation_degree_y: "Angle de rotation de l’axe Y"
+        transition_duration: Durée de la transition
+        transition_delay: Delai de la transition
+        columns: Colonnes
+      dynamic/chart/group:
+        source: Source
+        attr: Attribut
+        script: Script
+        calendar_interval: Intervalle calendaire
+        ranges: Intervalles
+        agg: Agrégation
+        axis: Axe
+        value_type: Type de données
+        min: Minimum
+        max: Maximum
+        size: N° de valeurs maximum
+        show_others: Afficher "Autres"
+        show_missing: Afficher les valeurs manquantes
+      dynamic/chart/group/range:
+        from: De
+        to: À
+
+      dynamic/query/base:
+        params: Paramètres
+        original: Requête d'origine
+
+      dynamic/doc_gen/template:
+        type: Type
+        multiple: Multiple
+        default_attachment: Emplacement du document généré
+        output_name_formula: Nom du document généré (formule)
+        output_locale: Langue du document généré
+        attribute_path: Source
+      dynamic/doc_gen/docx_template:
+        docx: Fichier DOCX
+      dynamic/doc_gen/wrapper_template:
+        wrapped_template_id: Modèle envoloppé
+        wrapped_format: Format de sortie
+      dynamic/doc_gen/generation:
+        template_id: Modèle
+        attachment: Emplacement du document généré
+        output_name: Nom du document généré
+      dynamic/merge/setting:
+        record_to_merges: Objet à fusionner
+      dynamic/copy/mapping:
+        name: Nom
+        source_klass: Table source
+        target_klass: Table cible
+        source_klass_name: Table source
+        target_klass_name: Table cible
+        pairs_count: Nombre de champs
+      dynamic/copy/mapping/pair:
+        source_name: Champ source
+        target_name: Champ cible
+        source_kind: Type de source
+        fixed_value: Valeur fixe
+        formula: Formule
+
+      dynamic/redirection:
+        name: Nom
+        condition_type: Condition
+        klass: Table de l'objet du lien
+        target: Cible principale
+        target_type: Type
+        target_klass: Table
+        target_formula: Objet dérivé de celui du lien
+        target_formula_help: Laisser ce champ vide pour utiliser l'objet présent dans le lien
+        target_params: Paramètres
+        fallback: Cible alternative
+        fallback_type: Type
+        fallback_klass: Table
+        fallback_formula: Objet dérivé de celui du lien
+        fallback_formula_help: Laisser ce champ vide pour utiliser l'objet présent dans le lien
+        fallback_params: Paramètres
+        form: Formulaire
+        form_params: Paramètres du formulaire
+        record_as: Objet en tant que
+
+      dynamic/transaction/applicable_amount/rule:
+        applicability: 'Applicabilité'
+        priority: 'Priorité'
+        amount_type: 'Type de montant'
+        amount: 'Montant'
+        target: 'Produit'
+        target_help: "Laisser ce champ vide pour que la règle s'applique sur la transaction"
+
+      user:
+        first_name: Prénom
+        last_name: "Nom d'usage"
+        language: Langue
+        email: Email
+
+    values:
+      dynamic/schema/klass:
+        table_profile:
+          small: Petite
+          medium: Moyenne
+          large: Large
+          huge: Enorme
+      dynamic/schema/attribute/base:
+        protocols:
+          http: Lien hypertext
+          mailto: E-mail
+          tel: Téléphone
+          sms: Sms
+        format:
+          raw: Aucun
+      dynamic/schema/attribute/string:
+        format:
+          raw: Texte
+          phone: Téléphone
+          qrcode: QR code
+        editor:
+          text: Aucun
+          autocomplete: Champ avec suggestions
+      dynamic/schema/attribute/text:
+        format:
+          raw: Texte
+          rich: Texte enrichi
+      dynamic/schema/attribute/float:
+        format:
+          locale: 'Selon vos paramètres régionaux (séparateur décimal : "," ; séparateur de milliers : " ")'
+          x100_percentage: Pourcentage
+          thousands: Milliers (valeur divisée par 1 000)
+          millions: Millions (valeur divisée par 1 000 000)
+          billions: Milliards (valeur divisée par 1 000 000 000)
+          ppm: Parties par million (valeur multipliée par 1 000 000)
+          unit: Unité
+          currency: Devise
+      dynamic/schema/attribute/integer:
+        format:
+          locale: 'Selon vos paramètres régionaux (séparateur de milliers : " ")'
+          percentage: Pourcentage
+          thousands: Milliers (valeur divisée par 1 000, arrondie)
+          millions: Millions (valeur divisée par 1 000 000, arrondie)
+          billions: Milliards (valeur divisée par 1 000 000 000, arrondie)
+          ppm: Parties par million (valeur multipliée par 1 000 000)
+          unit: Unité
+          currency: Devise
+      dynamic/schema/attachment/variant:
+        resize_type:
+          to_limit: Réduire si plus large que la dimension spécifiée
+          to_fit:  Réduire si plus large que la dimension spécifiée, sinon augmenter
+          to_fill: Couper si plus large que la dimension spécifiée
+          and_pad: Remplir les zones restantes avec une couleur translarente
+        format:
+          original: Format original
+          png: PNG
+          jpeg: JPEG
+      dynamic/schema/validation/base:
+        operator:
+          greater_than: ">"
+          greater_than_or_equal_to: ">="
+          less_than: "<"
+          less_than_or_equal_to: "<="
+          equal_to: "="
+          other_than: "!="
+      dynamic/form:
+        mode:
+          input: Normal
+          edit_in_place: Edition directe
+          read_only: Lecture seule
+        actions:
+          new: Nouveau
+          edit: Edition
+          show: Affichage
+          submit_all: Création multiple
+      dynamic/form/element/base:
+        requirement:
+          optional: Optionnel
+          important: Important
+          mandatory: Obligatoire
+        value_position:
+          top: Au dessus
+          right: À droite
+        editor:
+          default: Par défaut
+          text: Champ texte
+          textarea: Champ texte long
+          tinymce: Wysiwyg
+          smsarea: Champ SMS
+          checkbox: Cases à cocher
+          radio: Boutons radio
+          select: Liste déroulante
+          number: Champ nombre
+          hidden: Champ caché
+          select2: Champ avec suggestions
+          switch: Boutons switch
+          autocomplete: Champ avec suggestions
+          datetimepicker: Champ avec calendrier
+          radio_inline: Boutons radio horizontaux
+          checkbox_inline: Cases à cocher horizontales
+          step: Étape
+          step_inline: Étape horizontale
+          qrcode: Code QR
+          tel: Téléphone
+          unauthorized_action: Action impossible
+          association_error: Vous ne pouvez pas associer ces deux éléments
+        mode:
+          default: Par défaut
+          input: Champ
+          read_only: Lecture seule
+          edit_in_place: Edition directe
+          nested_form: Formulaire imbriqué
+        sorting_attribute:
+          title: Attribut
+        sorting_type:
+          title: Type de tri
+          asc: Croissant
+          desc: Decroissant
+        record_type_for_default_value_formula:
+          root_record: Objet racine
+          target_record: "Propriétaire de l'objet racine"
+        section:
+          sorting: Tri
+          filter: Filtres
+          default_value: Valeur par défaut
+          possible_value: Valeurs possibles
+          parent_setting:
+            title: Configuration de la colonne
+            width: Largeur
+          column_layout:
+            title: Disposition
+            label_width: Largeur du label
+            input_width: Largeur du champ
+            offset_width: Largeur du décalage
+            warning: Attention! Le total dépasse 12 colonnes
+      dynamic/menu/item:
+        mode:
+          table: Tableau
+          list: Vignettes
+          map: Carte
+          dashboard: Tableau de bord
+          kanban: Kanban
+          planner: Planification
+          file_manager: Gestionnaire de fichier
+        action:
+          last_search: Dernière recherche effectuée
+      dynamic/layout:
+        actions:
+          new: Nouveau
+          edit: Edition
+          show: Affichage
+          index: Collection
+      dynamic/redirection:
+        condition_type:
+          Permission: Permissions
+        target_type:
+          Form: Formulaire
+          Vcard: vCard
+        fallback_type:
+          Form: Formulaire
+          Vcard: vCard
+        record_as:
+          target: Objet propriétaire
+          source: Objet à éditer
+      dynamic/chart/group:
+        agg:
+          terms: Termes
+          significant_terms: Termes statistiquement importants
+          histogram: Histogramme
+          range: Plage
+          date_histogram: Histogramme de dates
+          auto_date_histogram: Histogramme de dates
+          date_range: Plage de dates
+          cardinality: Cardinalité (Nombre de termes uniques)
+          avg: Moyenne
+          max: Maximum
+          min: Minimum
+          median: Médiane
+          sum: Somme
+          percentile_ranks: Rang centile
+          percentiles: Centiles
+          extended_stats: Statistiques étendues
+          top_hits: Valeurs principales
+        calendar_interval:
+          1y: "Année"
+          1M: "Mois"
+          1d: "Jour"
+          1h: "Heure"
+          1m: "Minute"
+          1s: "Seconde"
+          1ms: "Milliseconde"
+      dynamic/record/version:
+        event:
+          create: Création
+          update: Mise à jour
+          destroy: Suppression
+      dynamic/transaction/applicable_amount/rule:
+        applicability:
+          on_base: Sur la base
+          previous_operation: Sur le résultat précédent
+        amount_type:
+          discount: Remise
+          fee: Charge
+
+      uneek_permission/rule:
+        permissions:
+          C: Création
+          R: Lecture
+          U: Mise à jour
+          D: Supression
+    defaults:
+      attributes:
+        id: Identifiant
+        updated_at: Mis à jour le
+        created_at: Créé le
+        deleted_at: Supprimé le
+        name: Nom
+        polymorphic_name: Nom
+        human_name: Nom
+        human_name_fr: Nom FR
+        human_name_en: Nom EN
+        icon: Icone
+        enabled: Activé
+        formula: Formule
+        comment: Commentaire
+        variable_name_text: "Nom de variable: %{variable_name}"
+        incremental: Incrémental
+        item_calculated: Champ calculé
+        creator_name: Créateur
+      values:
+        state:
+          finished: Terminé
+          pending: En attente
+          in_progress: En cours
+          running: En cours
+          suspended: En pause
+        final_state:
+          succeeded: Terminé avec succès
+          canceled: Annulé
+          failed: Échec
+    errors:
+      already_exists: "Enregitrement impossible: existe déja"
+  form:
+    element:
+      attribute:
+        date:
+          placeholder:
+            year: aaaa
+            month: mm
+    previous: Précédent
+    next: Suivant
+    cancel: Annuler
+    save_as_draft: Enregistrer comme brouillon
+    submit: Enregistrer
+    honeypot: "Ne pas remplir ce champ"
+  form/element/control/breadcrumb:
+    page: Page %{number}
+  form/element/layout/additional_fields_container/drop_down:
+    label: Ajouter une information
+  crm:
+    advanced_filters: 'Filtres avancés'
+    choose_columns: 'Colonnes'
+    open_query: 'Appliquer une requête'
+    save_query: 'Enregistrer la requête'
+    edit_query: 'Requête'
+    reset_filters: Réinitialiser les filtres
+    reset_order: Réinitialiser le tri
+    display_mode: Mode d'affichage
+    display: Affichage
+    expanding_menu:
+      dropdown:
+        copy_link: "Copier l'adresse du lien"
+        edit_menu: 'Modifier le menu'
+        open_new_tab: 'Ouvrir le lien dans un nouvel onglet'
+    delete_records:
+      zero: Aucun %{klass_name} à supprimer
+      one: Suppression d'un %{klass_name}
+      other: Supression de %{count} %{klass_name}
+    submit_all_records:
+      zero: Aucun formulaire sélectionné
+      one: "%{form_name} pour un %{klass_name}"
+      other: "%{form_name} pour %{count} %{klass_name}"
+    update_records:
+      zero: Aucun %{klass_name} à modifier
+      one: Modification d'un %{klass_name}
+      other: Modification de %{count} %{klass_name}
+    update_records_f:
+      zero: Aucune %{klass_name} à modifier
+      one: Modification d'une %{klass_name}
+      other: Modification de %{count} %{klass_name}
+    edit_all_modal:
+      async: Effectuer cette action en tâche de fond
+      async_warning: Cette action sera effectuée en tâche de fond car trop d'enregistrements sont sélectionnés
+    filters_op:
+      equal: 'Égal à'
+      not_equal: 'Non égal à'
+      greater_equal: 'Supérieur ou égal à'
+      lesser_equal: 'Inférieur ou égal à'
+      greater: 'Supérieur à'
+      lesser: 'Inférieur à'
+      contains: 'Contient'
+      not_contains: 'Ne contient pas'
+      contains_id: 'Contient'
+      not_contains_id: 'Ne contient pas'
+      contains_name: Nom contient
+      not_contains_name: Nom ne contient pas
+      equal_id: 'Égal à'
+      not_equal_id: 'Non égal à'
+      empty: 'Vide'
+      not_empty: 'Non vide'
+      starts_with: 'Commence par'
+      ends_with: 'Termine par'
+      length_equal_to: 'Longueur égal à'
+      today: "Aujourd'hui"
+      this_week: 'Cette semaine'
+      this_month: 'Ce mois-ci'
+      this_year: 'Cette année'
+      before: 'Avant le'
+      after: 'Après le'
+      ago: 'Il y a'
+      since: 'Depuis'
+      until: "Jusqu'à"
+      date_equal: 'Date égale à'
+      date_not_equal: 'Date non égale à'
+      past: "Passé"
+      future: "Futur"
+      previous_days: "Jours précédents"
+      following_days: "Jours suivants"
+    filters_type:
+      value: 'Valeur'
+      variable: 'Variable'
+    forms:
+      status_code:
+        200: "L'enregistrement a bien été effectué"
+        401: "Vous n'êtes pas connecté"
+        403: "Vous n'êtes pas autorisé"
+        422: "L'enregistrement n'a pas pu être effectué car un champ est invalide"
+        500: "Une erreur s'est produite"
+      unattainable: Le formulaire n'est pas accessible
+    form_editor:
+      text: Texte
+      previous_button: Bouton précédent
+      next_button: Bouton suivant
+      cancel_button: Bouton annuler
+      save_as_draft_button: Bouton enregistrer comme brouillon
+      submit_button: Bouton enregistrer
+      show_button: Afficher le bouton
+      col_size_selector: Choississez la largeur de la colonne
+      css_classes:
+        accordion_title: Mise en forme
+        label_size:
+          label: Taille du label
+          values:
+            normal: Normale
+            large: Grande
+            small: Petite
+        field_size:
+          label: Taille de champ
+          values:
+            normal: Normale
+            large: Grande
+            small: Petite
+    menu_editor:
+      delete_message:
+        one: '1 item'
+        other: '%{count} items'
+      unauthorized: Lien inaccessible
+    form_integrator:
+      embedded: Intégration
+      panel: Paramètres du formulaire intégré
+      source_record_type:
+        label: "Table de l'enregistrement source"
+        default_option: "Sélectionner un type d'enregistrement source"
+      source_record_id:
+        label: Enregistrement source
+      target_record_type:
+        label: "Table de l'enregistrement cible"
+        default_option: "Sélectionner un type d'enregistrement cible"
+      target_record_id:
+        label: Enregistrement cible
+      additional_params:
+        button: Ajouter
+        label: Liste des paramètres
+      height:
+        small: Petit
+        medium: Moyen
+        large: Grand
+      iframe_code: Code iframe
+      copy_iframe_code: Copier le code Iframe
+      copy_iframe_link: Copier le lien
+      update: "Mettre à jour l'iframe"
+      value: Valeur
+      back: Retour
+      preview_code: Prévisualiser
+      heading_params: "Paramètres de l'element"
+      heading_settings: "Paramètres de l'url"
+      missing_setting: "Aucune paramètre spécifique à ce type d'élément"
+      heading_message_control: "Message d'atente"
+      close: Fermer
+      styles:
+        font_size: Taille
+        colors: Couleur
+        text_style: Style
+        click_to_pick_color: Cliquer pour choisir une couleur
+    index:
+      modes:
+        table: Tableau
+        list: Vignettes
+        map: Carte
+        dashboard: Tableau de bord
+        kanban: Kanban
+    dashboard_editor:
+      delete_message:
+        one: '1 graphique'
+        other: '%{count} graphiques'
+      close_without_saving: "Le tableau de bord n'a pas été enregistrer. Souhaitez-vous quand même quitter l'éditeur ?"
+      screen_size:
+        xl: 'Très large'
+        lg: 'Large'
+        md: 'Moyen'
+        sm: 'Petit'
+        xs: 'Très petit'
+    dashboard:
+      maximize_chart: Agrandir le graphique
+      edit_chart: Editer le graphique
+    datatable:
+      copy_url: Copier l'url
+      copy_document_url: Copier l'url du document
+      open_in_new_tab: Ouvrir dans un nouvel onglet
+      missing_columns: 'Aucune colonnes sélectionnées pour la table %{klass_name}'
+      summary:
+        operations:
+          count:
+            symbol: "#"
+            label: "Comptage"
+          sum:
+            symbol: "Σ"
+            label: "Somme"
+          avg:
+            symbol: "μ"
+            label: "Moyenne"
+          min:
+            symbol: "↓"
+            label: "Min"
+          max:
+            symbol: "↑"
+            label: "Max"
+          count_distinct:
+            symbol: "⊕"
+            label: "Distinct"
+      lock_left: "Verrouiller à gauche"
+      lock_right: "Verrouiller à droite"
+      unlock: "Déverrouiller"
+    settings: Paramètres
+    export:
+      settings:
+        separators:
+          title: "Séparateur de colonne"
+          comma: Virgule (,)
+          semi_colon: Point virgule (;)
+          dot: Point (.)
+        decimal_separators:
+          title: Séparateur décimal
+        language:
+          title: Langue
+        date_formats:
+          title: Format des dates
+          'YYYY-MM-DD': 'AAAA-MM-JJ'
+          'YY-MM-DD': 'AA-MM-JJ'
+          'DD-MM-YY': 'JJ-MM-AA'
+          'DD-MM-YYYY': 'JJ-MM-AAAA'
+          'DD-MM-YYYY H:M:S': 'JJ-MM-AAAA H:M:S'
+          'DD/MM/YY': 'JJ/MM/AA'
+          'DD/MM/YYYY': 'JJ/MM/AAAA'
+        export_types:
+          title: "Type d'export"
+          csv_utf_8: CSV UTF 8
+          csv_cp1252: CSV WINDOWS 1252
+          xml_utf_8: XML UTF 8
+          xml_cp1252: XML WINDOWS 1252
+        apply_attribute_format: "Appliquer le formatage des attributs"
+    import:
+      settings:
+        save_and_next: "Enregistrer et passer à l'étape suivante"
+        save_and_preview: 'Enregistrer et prévisualiser'
+        next: "Passer à l'étape suivante"
+        import: "Lancer l'import"
+        new: 'Paramétrer un nouvel import'
+        load: 'Importer un fichier avec un paramétrage existant'
+        import_file: 'Importer un nouveau fichier'
+        no_file: "Aucun fichier sélectionné"
+        name_placeholder: "Ex: Import fichier client"
+        preview: "Aperçu"
+        saved: "Importation sauvegardée"
+        test_import_msg: "Réalisez un import de vérification sur un petit nombre de lignes pour vérifier votre fichier. en cliquant sur 'Voir la fiche créée', vous aurez un aperçu direct de la manière dont se sont enregistrées vos données."
+        test_import_lines: "Nombre de lignes à tester"
+        plan_import: "Planification de votre import :"
+        import_lines: "Nombre de lignes à importer"
+        import_state: "Avancement de l'import"
+        import_summary: "Récapitulatif de votre import :"
+        import_msg1: "* Si vous souhaitez importer tout le fichier, laissez ce champ vide."
+        last_log: "Journal de la dernière importation"
+        plan_date: "Quand souhaitez-vous réaliser cet import ?"
+        no_import: "Aucune importation"
+        filter_title: "Afficher les imports de la table :"
+        status_tooltip_title: "Voir détail statut"
+        table:
+          name: "Nom de l'import"
+          type: "Type d'import"
+          creation: "Création"
+          date: "Date importation"
+          file: "Fichier"
+          status: "Statut"
+          column: "Colonne"
+          column_title: "Titre"
+          values: "Valeur"
+          fields: "Attribut associé"
+          primary_key: "Clé objet principal"
+          foreign_key: "Clé objet rattaché"
+          object_duplication_keys: "Clés de dédoublonnage des objets"
+          show_values: "Afficher les valeurs"
+          when_create: "Création"
+          when_create_info: "Permet de créer une valeur pour l'attribut"
+          when_update: "Mise à jour"
+          when_update_info: "Permet de mettre à jour la valeur de l'attribut"
+          when_delete: "Suppression"
+          when_delete_info: "Permet de supprimer la valeur de l'attribut"
+          action: "Actions"
+        step:
+          first: "1. Sélection du fichier"
+          second: "2. Encodage"
+          third: "3. Transformations"
+          fourth: "4. Correspondance des colonnes"
+          fifth: "5. Dédoublonnages"
+          sixth: "6. Validation de l'import"
+        advanced_params:
+          title: "Paramètres avancés"
+          separator: "Options de séparateur"
+          definition: "Définition de l'import"
+          delete_import: "Import de suppression"
+          has_header: "Votre classeur contient une ligne de titres"
+          col_delimiter: "Caractère délimiteur de colonnes"
+          row_delimiter: "Caractère délimiteur de lignes"
+          quotation_mark: "Caractère délimiteur de chaîne"
+          encoding: "Encodage"
+          add_possible_values: "Ajouter automatiquement des valeurs possible dans les listes"
+          accumulate_values: "Accumuler les valeurs des listes multiples"
+          allow_remove: "Permettre la destruction des objets (attention !)"
+          multilist_separator: "Separateur de valeurs des listes multiples"
+        edit_columns:
+          title: "Correspondance des colonnes"
+          title_info: "La correspondance permet d'affecter les colonnes présentes dans le fichier (cf: Titre, Valeurs) aux champs dans la table défini par le type d'import (cf: Attribut associé)"
+          create: "Création de colonnes"
+          empty_cells: "Effacer les valeurs de champs quand les cellules sont vides"
+          show_values: "Afficher les valeurs"
+          show_formula: "Afficher la formule"
+          clear_field: "Vider le champ"
+          primary_key_msg_1: "La clé d'objet principal permet de retrouver de façon unique un enregistrement existant dans le CRM."
+          primary_key_msg_2: "Exemple: imports de contact. Pour mettre à jour mon contact et pour éviter de créer un doublon, j'indique en clé principale son email pro."
+          foreign_key_msg_1: "La clé d'objet rattaché permets de lier un objet (contact) à un autre objet (compte)."
+          foreign_key_msg_2: "Dès que vous souhaitez lier un objet à un autre, indiquez systématiquement qu'il s'agit d'un objet rattaché en cochant la case."
+          compute_field:
+            title: "Formule de calcul"
+            msg_1: "La formule de calcul vous permet de combiner plusieurs colonnes de votre fichier d'import afin d'en créer une nouvelle."
+            msg_2: >-
+              Vous pouvez réaliser de simples calculs tels que :
+              Titre colonne A + ' ' + Titre colonne B
+              Somme(Titre colonne C)
+            msg_3:
+              part_1: Visitez notre page
+              link_formula: formule de calcul
+              part_2: pour retrouver une liste exhaustive de formules
+        transformation:
+          title: "Transformation"
+          msg_1: "Les transformations permettent d'altérer les données contenues dans le fichier fourni en entrée. Il est possible de : \r\t - Séparer les cellules à l'aide d'un délimiter \r\t - Créer une colonne en lui fournissant une formule afin d'effectuer des opérations entre différentes colonnes"
+          cell_delimiter: "Separateur cellule"
+          affiliate_column: "Colonne de rattachement"
+          create_column: "Créez une nouvelle colonne (si vous n'attribuez pas de champ, elle sera ignorée)"
+          create_row: "Ajoutez une transformation"
+        launch:
+          label_starting_line: Ligne de départ
+          label_end_line: Ligne de fin
+          end_line_length_error: La ligne de fin doit être supérieure à la ligne de départ.
+          negative_value_error: La valeur doit être positive.
+        job:
+          state: "Statut de l'import"
+          ordered: "Importation demandée le"
+          modified: "Importation modifiée le"
+          import: "Importation de"
+          logs:
+            error: "Éléments en erreurs"
+            warning: "Avertissements"
+            success: "Éléments traités avec succès"
+            unchanged: "Inchangés"
+            no_lines: "Aucune ligne"
+            line: "Ligne"
+            system_error: "Erreur du système, veuillez contacter contact@kosmopolead.com"
+          message:
+            empty_row: "Toutes les colonnes associées sont vides"
+            unchanged: "Inchangé"
+      sources:
+        type: "Type d'import"
+        no_preview: "Le fichier csv n'est pas présent ou il ne peut pas être prévisualisé"
+      to_grid: "Revenir à la grille"
+    enum:
+      select: Sélectionner
+    sheet:
+      ai:
+        ai_assistant: "Assistant IA"
+      delete_association: Supprimer la relation
+      toolbar:
+        title: "Titre"
+        all_tab:
+          title: "Liste des associations de l'onglet Tous"
+          tom_select: "Associations présentes"
+          apply_btn: "Appliquer"
+      menu:
+        versions: "Historique"
+    pin: Épingler
+    user_is_not_in_a_community: "%{user} n'a pas de communauté"
+    chart:
+      _others_: Autres
+      _missing_: Vide
+      exclude:
+        key: "Exclure"
+        undo: "Supprimer la dernière exclusion"
+        reset: "Réinitialiser les exclusions"
+      sort:
+        sort_by_key: Trier par étiquettes
+        sort_by_value: Trier par valeurs
+        axis:
+          asc: ascendant
+          desc: descendant
+          none: pas encore trié
+      settings:
+        x_axis: Axe X
+        y_axis: Axe Y
+        z_axis: Regroupement par attribut
+        legends: Legendes
+        animations: Animations
+        size: Taille
+        graph_choice: Type de visualization
+        data: Choix des données
+      drill:
+        down: Entrer dans les détails
+        up: Réduire les détails
+        reset: Réinitialiser la vue
+      show_others:
+        enable: "Afficher les autres"
+        disable: "Masquer les autres"
+      show_missing:
+        enable: "Afficher les valeurs manquantes"
+        disable: "Masquer les valeurs manquantes"
+    kanban:
+      error_attribute_not_in_klass: "%{attribute} n'est pas dans les attributs de %{klass} ou n'a pas de valeurs"
+      error_doesnt_belongs_to: "%{klass} n'appartient pas à une klass %{belongs_to}"
+      select_sprint: "Sélectionner un sprint"
+      not_categorized: "Non catégorisée"
+      setting:
+        column_attribute: "Champs de regroupement"
+        sprint_param: "Filtre principal"
+        title: Paramétrage du Kanban
+    planner:
+      module_missing_on_klass: "%{klass} n'est pas configuré pour gérer des évènements"
+      action:
+        remove_resource: "Retirer %{resource} (%{type})"
+        show: Afficher
+        unschedule: Déplanifier
+        unschedule_and_remove_resources: "Déplanifier et enlever les ressources"
+      bucket_list:
+        title: Éléments à placer
+        filter_help: Un filtre est appliqué
+      view:
+        interval:
+          today: Aujourd'hui
+          day: Jour
+          week: Semaine
+          month: Mois
+          year: Année
+        view_type:
+          gantt: Gantt
+          agenda: Agenda
+        resource: Ressource
+        color_picker_title: "Changer la couleur pour: %{title}"
+      modal:
+        unschedule_text: Voulez-vous vraiment déplanifier ?
+        drop_confirmation: Confirmation
+        drop_replace_text: Cet élément est déjà associé à une ressource du même type. Voulez-vous la remplacer ?
+        drop_hasMany_replace_text: Cet élément est déjà associé à une ressource du même type. Voulez-vous la remplacer ou l'ajouter ?
+        add_btn_text: Ajouter
+        replace_btn_text: Remplacer
+        settings: Paramètres
+        unschedule_and_remove_resources_text: "Êtes-vous sûr de vouloir déplanifier cet événement et enlever toutes ses ressources ?"
+      layout_editor:
+        label_default_resource: "Ressources par defaut"
+      filters:
+        title: Filtres
+        advanced: Filtres avancés
+        search_tooltip: Saisissez et appuyez sur Entrée
+        placeholder: "Rechercher..."
+      errors:
+        no_preview_form: Aucun aperçu disponible pour cet événement
+        record_not_found: Enregistrement introuvable
+      conflicts:
+        count:
+          one: "%{count} conflit détecté"
+          other: "%{count} conflits détectés"
+        current: "Conflit %{current} sur %{total}"
+        view:
+          conflict_title: "Conflits détectés sur cette ressource"
+    query:
+      params:
+        table:
+          columns: Colonnes
+          order: Tri
+          locked: Colonne figées à gauche
+          locked_right: Colonne figées à droite
+          filters: Filtres
+          width: Largeurs des colonnes
+          summary: Synthèses
+        chart:
+          filter: Filtre
+          order: Tri
+          axis:
+            x: Trier par étiquettes
+            y: Trier par valeurs
+          exclusion_filters: Filtre d’exclusion
+          filters: Filtre
+          contains: Recherche par mot-clé
+        kanban:
+          column_states: Colonnes ouvertes
+        planner:
+          interval: Intervalle
+          view_type: Type de vue
+          event_duration: Durée par défaut
+          min_day_time: Heure de début de journée
+          max_day_time: Heure de fin de journée
+          filter_for_bucket: Filtre des éléments à placer
+          filters_for_resources: Filtres pour ressources
+          last_date_viewed: Dernière date consultée
+        filters: Filtres
+        q: Recherche
+      replace: Remplacer par la requête en cours
+      reset: Annuler les modifications
+      new: Nouvelle requête
+      changed: Requête enregistrée modifiée
+      not_applied: non appliqué
+    mailhosting:
+      message:
+        open: "Visualiser le message"
+    merge:
+      setting:
+        title: Sélectionnez dans le tableau ci-après les valeurs que vous souhaitez conserver à l'issue de la fusion.
+        fields: Champs
+        merged_version: Version fusionnée
+        merge: Fusionner
+        update_settings: Mettre à jour les paramètres
+        show_identical_lines: Afficher les lignes dont les valeurs sont identiques
+        hide_identical_lines: Masquer les lignes dont les valeurs sont identiques
+    copy:
+      modal:
+        title: Dupliquer
+        correspondance: Correspondance
+        count: Nombre
+        impact_summary: "%{n} enregistrements sélectionnés → %{total} nouveaux enregistrements seront créés en arrière-plan."
+        no_mapping: Aucune correspondance disponible pour cette table. Créez-en une depuis les paramètres de la table.
+      mapping:
+        empty_target: "(non recopié)"
+        source_col: "Source (%{klass})"
+        value_col: Valeur
+        dynamic_values: Valeurs dynamiques
+        source_fixed: Valeur fixe…
+        source_formula: Formule…
+        fixed_value_placeholder: Valeur à assigner à la copie
+        formula_placeholder: "ex : concat(name, ' ', surname)"
+        has_many_help: "Pour chaque association de la cible, choisir l'association source. Ce qui arrive aux enregistrements liés découle du schéma. Laisser la source vide pour ne pas reprendre l'association."
+        has_many_no_child_mapping: Aucune
+        has_many_duplicated: "Les enregistrements liés seront recopiés à l'identique."
+        has_many_not_reproduced: "L'association ne sera pas reprise : ses enregistrements appartiennent déjà à un autre parent. Choisir une correspondance pour les recopier quand même."
+        has_many_share_ids: "La copie sera liée aux mêmes enregistrements (rien à dupliquer)."
+      mappings:
+        new: Nouvelle correspondance
+      context_menu:
+        run: Dupliquer
+      notification:
+        title:
+          in_progress: "Duplication en cours…"
+          success:
+            one: "%{count} enregistrement créé"
+            other: "%{count} enregistrements créés"
+        action:
+          open_records: Voir les enregistrements créés
+    redirection:
+      invalid: Redirection impossible
+    transaction_line:
+      summary:
+        percent: TVA
+        excluding_vat: Tot. HT
+        including_vat: Tot. TTC
+        vat_amount: Tot. TVA
+        total: Total
+        discounts_amount: Tot. Remises
+        fees_amount: Tot. Charges
+  toolbar:
+    user_button:
+      disconnect: "Déconnexion"
+      disconnected: "Déconnecté"
+  settings:
+    attributes:
+      styles:
+        title: Mise en forme conditionnelle
+        edit_rule_title: Éditer la règle
+        edit_rule: Éditer la règle pour %{label}
+        manage: Gérer les règles pour %{label}
+        show_label: Afficher le pourcentage
+        feature_disabled: La fonctionnalité 'Styles de tableau' n'est pas activée.
+        count_rule: condition(s) configurée(s)
+        nothing_rule: Aucune règle configurée
+        max_value: Valeur maximum
+        min_value: Valeur minimum
+        add_rule: Ajouter une règle de couleur
+        rule: Condition
+        value: Valeur
+        color: Couleur
+        target_column: Colonne cible
+        operator: Opérateur
+        icon: Icône
+        preview: Aperçu
+        row: Ligne
+        cell: Cellule
+        cell_color: Couleur de cellule
+        row_color: Couleur de ligne
+        badge: Badge
+        progress_bar: Barre de progression
+        button: Bouton d'action
+        contains: Contient
+        equals: Égal à
+        button_style_rules: Règles de style
+        button_defaults: Style par défaut
+        default_color: Couleur par défaut
+        default_icon: Icône par défaut
+        trigger_name_pattern: Nom du déclencheur
+        trigger_name_contains_placeholder: "ex: envoi|suppression..."
+        action_name: Action
+        action_name_placeholder: "URL de l'action"
+        select_action: Sélectionner une action
+        button_label: Libellé du bouton
+        button_label_placeholder: Texte du bouton
+        show_value: Afficher la valeur de la cellule
+        add_button: Ajouter un bouton
+        form:
+          style: Style
+          color: Couleur
+        operators:
+          equal: "Égal à"
+          not_equal: "Non égal à"
+          greater_than: "Supérieur à"
+          greater_than_or_equal: "Supérieur ou égal à"
+          less_than: "Inférieur à"
+          less_than_or_equal: "Inférieur ou égal à"
+          between: "Entre"
+          contains: "Contient"
+          not_contains: "Ne contient pas"
+          starts_with: "Commence par"
+          ends_with: "Termine par"
+          matches_regex: "Correspond à l'expression"
+          is_blank: "Vide"
+          is_not_blank: "Non vide"
+          in_list: "Inclus dans"
+          not_in_list: "N'est pas inclus dans"
+        default_style: "Style par défaut"
+        default_style_hint: "Appliqué à toutes les cellules, sauf celles correspondant à une condition ci-dessous"
+        default_appearance: "Apparence par défaut"
+        exceptions: "Exceptions"
+        exceptions_hint: "Ces conditions remplacent le style par défaut lorsqu'elles sont remplies"
+        preview_text: "Exemple"
+    administration: Administration
+    frequently_used: Utilisés fréquemment
+    appearance: Apparence
+    schema:
+      import: Importer le schéma
+      export: Exporter le schéma
+      forms:
+        goto_form: Accéder au formulaire
+    klasses:
+      access_table: Accéder aux données
+      subklasses: Sous-tables
+      has_subklasses: Cette table a des sous-tables
+      copy_mappings: Correspondances de recopie
+      copy_mappings_outgoing: Depuis cette table
+      copy_mappings_incoming: Vers cette table
+      indexing:
+        indexed_fields:
+           explaination: 'Attributs, pièces jointes et associations indexés&nbsp;:'
+        global_search_fields:
+           explaination: 'Attributs utilisés par la recherche globale et les suggestions&nbsp;:'
+        launch: "Lancer l'indexation"
+        settings_on_baseklass: "La configuration du moteur de recherche pour cette table s'effectue sur la table suivante :"
+      attributes:
+        available_count:
+          zero: '%{count} disponible'
+          one: '%{count} disponible'
+          other: '%{count} disponibles'
+        available_index_count:
+          zero: 'dont %{count} indexé'
+          one: 'dont %{count} indexé'
+          other: 'dont %{count} indexés'
+        recompute_formula: 'Recalculer la formule'
+        format_preview: Aperçu
+      associations:
+        back_to_klass: Acccéder à la table
+        default_value_no_target: Sélectionnez d'abord une table cible
+      forms:
+        cascades:
+          override: Redéfinir pour le formulaire
+          undefined: Revenir aux clés déclarées sur la table
+          could_create_duplicates: Cette configuration peut provoquer la création de doublons.
+          could_modify_wrong_record: Cette configuration peut provoquer la modification des mauvais objets.
+      show_counts: Afficher le nombre des enregistrements
+    validations:
+      format_examples:
+        zip_code: "Un code postal :"
+        at_least_one_char_and_uppercase: "Au moins un caractère, uniquement des majuscules :"
+        nhs_number: "Numéro de sécurité sociale :"
+    attachments:
+      megabytes: mégaoctets
+  bootstrap_editor:
+    save: Enregistrer
+    cancel: Annuler
+    download: Télécharger
+    search: Rechercher...
+    variables_file: Variables
+    custom_file: Règles personnalisées
+    browse: Parcourir
+    back: Retour
+    error: Une erreur s'est produite
+  layout_editor:
+    center: Centre
+    components: Composants
+    left: Gauche
+    parents_size: De la taille du parent
+    right: Droite
+    url_target: URL cible
+    panel:
+      new_item_button:
+        text: 'Label du bouton'
+      build_children: Créer les composants descendants
+      build:
+        list: Liste
+        datatable: Table de données
+        transaction_lines: Lignes de transactions
+    form:
+      label: Choix du formulaire
+  workflow:
+    manual_trigger:
+      success: "%{object} déclenché"
+      error: Une erreur s'est produite
+  notifications:
+    panel_title: Notifications
+    mark_all_as_read: Marquer tout comme lu
+    open_sheet: Ouvrir la fiche
+    view_settings: Voir le paramétrage
+    view_record: Voir le resultat
+    error_count:
+      zero: '%{count} erreur'
+      one: '%{count} erreur'
+      other: '%{count} erreurs'
+    success_count:
+      zero: '%{count} succès'
+      one: '%{count} succès'
+      other: '%{count} succès'
+  doc_gen:
+    generate: "Générer un document"
+  vcard:
+    download: "Télécharger la VCard"
+  left_menu:
+    crm: Menu du CRM
+    apps: Menu des applications
+    communities: Menu des communautés
+  sequence:
+    number: "Chiffres"
+    character: "Lettres"
+    help: "Nécessite au moins une séquence pour fonctionner"
+  layout:
+    validate: Valider
+    selector:
+      display: Affichage
+      new_layout: Gestion des affichages
+    deleted: Cet affichage n'existe plus
+    delete:
+      tooltip: "Supprimer cet affichage"
+      has_dependencies: "Cet affichage a des dépendances"
+      dependencies_title: "Suppression"
+      is_last_layout: "Dernier affichage - impossible de le supprimer car au moins un layout est requis"
+      is_default: "Affichage par défaut - ne peut pas être supprimé"
+      cannot_delete: "Cet affichage ne peut pas être supprimé"
+      confirm_with_details: |
+        L'affichage '%{name}' sera supprimé.
+        Impact de la suppression :
+        %{details}
+      confirm_title: Confirmer la suppression
+      confirm_simple: L'affichage '%{name}' sera supprimé
+      dependencies:
+        has_elements: "Contient %{count} éléments"
+    duplicate:
+      title: "Dupliquer un affichage"
+    copy: "Copie"
+    type: "Type"
+    default: "Par défaut"
+    create:
+      title: Créer un affichage
+      configure_layout: "Configurer l'affichage"
+      selected_type: "Type sélectionné"
+      next: "Suivant"
+    edit:
+      tooltip: "Renommer l'affichage"
+  deduplication_keys:
+    not_used: "Non utilisé"
+    unknown: "Inconnu"
+  record_versions:
+    deleted: "Supprimé"
+    deleted_field: "Champ supprimé"
+  permission:
+    rule: Règle
+    receiver: Destinataire
+    permissions: Permissions
+    user_domain: Domaine de l'utilisateur
+    user_field: Attribut de l'utilisateur
+    value: Valeur fixe
+    context_field: Champs du context
+    condition: Condition
+    comes_from: "Provient de : %{source}"
+    errors:
+      target: nécéssite de selectioné la cible
+      receiver: nécéssite un destinataire
+      operation: nécéssite une condition
+      value: nécéssite une valeur
+      context_field: nécéssite un domaine applicable
+  ui:
+    name: Nom
+    close: Fermer
+    save: Enregistrer
+    none: Aucun
+    small: Petit
+    subject: Sujet
+    normal: Normal
+    large: Grand
+    huge: Très grand
+    message:
+      to: À
+      cc: Cc
+      bcc: Cci
+      from: De
+      subject: Sujet
+      new: Nouveau message
+      send: Envoyer
+      separately: séparément
+      attachment_could_not_be_retrieved: "La pièce jointe n'a pas pu être récupérée."
+      attachment_max_size: "La pièce jointe dépasse la taille maximale autorisée de %{size}."
+      confirm_save_as_draft: Enregistrer ce message comme brouillon ?
+      confirm_cancel_modifications: Abandonner vos modifications ?
+      confirm_delete_message: Supprimer ce message ?
+      forbidden: "Vous n'avez pas les droits pour consulter ce message."
+    mailbox:
+      connect_my_mailbox: Connecter ma boîte mail
+      disconnected_reconnect: "Votre boîte mail est déconnectée. Se reconnecter maintenant ?"
+    template:
+      identifier: Identifiant
+      new_template: Nouveau modèle
+    ai:
+      ai_assistant: Assistant IA
+      ai_suggestion: Suggestion de l'IA
+      close: Fermer
+      minimize: Réduire
+      pin: Épingler
+      unpin: Désépingler
+      generate_response: Générer une réponse
+      grammar_correction: Correction grammaticale
+      reorganize_content: Réorganiser le contenu
+      translate_to_english: Traduire en anglais
+      improve_sentence: Améliorer la phrase
+      quick_actions: Actions rapides
+      ask_something_specific: Demander quelque chose de spécifique
+      apply_change_mainly_to_selection: 'Appliquer principalement à la sélection'
+      tone_of_message: Ton du message
+      length: Longueur
+      short: Court
+      medium: Moyen
+      long: Long
+      professional: Professionnel
+      friendly: Amical
+      diplomatic: Diplomatique
+      generation_in_progress: Génération en cours…
+      no_suggestion: Aucune suggestion
+      no_suggestions: Aucune suggestion
+      inline_suggestion_title: Suggestion de l'IA
+      accept: Accepter
+      reject: Rejeter
+      version: Version
+      versions: Versions
+      update_record: Mettre à jour la fiche
+      full_name: Nom complet
+      email: Email
+      phone: Téléphone
+      company: Société
+      contact: Contact
+      no_contact_suggested_yet: Aucun contact suggéré pour le moment
+      analyze_message_contacts: Analyser les contacts de ce message
+      contacts_analysis_in_progress: Analyse des contacts en cours
+      contacts_analysis_in_progress_ellipsis: Analyse des contacts en cours…
+      synchronization_in_progress: Synchronisation en cours…
+      fields:
+        generate_response: Générer une réponse
+        grammar_correction: Corriger la grammaire
+        reorganize_content: Réorganiser le contenu
+        translate_to_english: Traduire en anglais
+        write_an_email_about: Écrire un email à propos de…
+        write_professional_email_adapted_to_context: Écrire un email professionnel adapté au contexte
+        revise_email_draft_while_maintaining_requested_tone: Réviser le brouillon de l'email en conservant le ton demandé
+      errors:
+        ai_assistant_unavailable: "L'assistant IA est indisponible."
+        network_error: "Une erreur réseau est survenue."
+        no_suggestion_returned: "Aucune suggestion n'a été renvoyée."
+        unable_to_correct_text: "Impossible de corriger le texte."
+        unable_to_generate_suggestion: "Impossible de générer une suggestion."
+        unknown_error: "Une erreur inconnue est survenue."
+      crm:
+        add_to_contact: Ajouter au contact
+        already_in_crm: Déjà dans le CRM
+        check_in_crm: Vérifier dans le CRM
+        contact_already_exists: "Ce contact existe déjà."
+        contact_collection_not_found: "Collection de contacts introuvable."
+        contact_created: "Contact créé."
+        contact_creation_failed: "La création du contact a échoué."
+        contact_initials_fallback: '?'
+        contacts_sync_failed: "La synchronisation des contacts a échoué."
+        contact_to_update_not_found: "Contact à mettre à jour introuvable."
+        contact_updated: "Contact mis à jour."
+        contact_update_failed: "La mise à jour du contact a échoué."
+        existing_contact_to_update: Contact existant à mettre à jour
+        multiple_contacts_match: "Plusieurs contacts correspondent."
+        multiple_contacts_match_manual_update: "Plusieurs contacts correspondent, veuillez mettre à jour manuellement."
+        new_contact_to_create: Nouveau contact à créer
+        sync_endpoint_not_found: "Point de synchronisation introuvable."
+        sync_failed: "La synchronisation a échoué."
+        sync_not_configured: "La synchronisation n'est pas configurée."
+        sync_unavailable: "La synchronisation est indisponible."
+        unable_to_extract_contacts: "Impossible d'extraire les contacts."
+        unknown_error_extracting_contacts: "Une erreur inconnue est survenue lors de l'extraction des contacts."
+      contact_fields:
+        nom: Nom
+        prenom: Prénom
+        email: Email
+        telephone: Téléphone
+        fonction: Fonction
+        entreprise: Entreprise
+      contact_compare:
+        already_exists: Existe déjà
+        status_new: Nouveau
+        status_changed: Modifié
+        status_additional: Ajouter
+        matching_in_progress: Recherche de doublons…
+        update_field: Mettre à jour ce champ
+      contact_form:
+        opening: Ouverture…
+        edit_in_dynamo: Modifier dans le CRM
+        add_to_dynamo: Ajouter au CRM

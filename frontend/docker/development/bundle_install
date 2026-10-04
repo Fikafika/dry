@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# this script check if gems need to be installed and install them
+# bundle install fails if gems are updated in Gemfile but not in Gemfile.lock
+# so we catch its errors and pass these gems to bundle update --source
+
+if ! bundle check; then
+
+  errors=$( bundle install --binstubs="$BUNDLE_BIN" 2> >(tee /dev/tty) )
+  to_update=$( echo $errors | grep -Po 'bundle update ([^\`]+)' | sed "s/bundle update//g" )
+  if [ ! -z $to_update ]; then
+    echo "bundle update --source $to_update"
+    bundle update --source $to_update
+  fi
+
+fi

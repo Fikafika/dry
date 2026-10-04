@@ -1,0 +1,210 @@
+@mixin kanban-background-variant($background, $border, $hover-background: darken($background, 7.5%), $hover-border: darken($border, 10%)) {
+  color: color-yiq($hover-background);
+  @include gradient-bg($hover-background);
+  border-color: $hover-border;
+}
+
+@each $color, $value in $theme-colors {
+  .kanban-background-transparent-#{$color} {
+    @include kanban-background-variant($value, $value);
+  }
+}
+
+@mixin p0-m0() {
+  margin: 0;
+  padding: 0;
+}
+
+@mixin kanban-column-style() {
+  display: flex;
+  background-color: #F3F2F3;
+  border: 2px solid #D3D3D3;
+  border-radius: 5px;
+  padding: 15px 15px 5px 15px;
+  gap: 13px;
+  flex-direction: column;
+
+  .fa {
+    color: $secondary;
+    display: flex;
+    gap: 3px;
+    align-items: center;
+    writing-mode: horizontal-tb;
+
+    span {
+      font-size: 12px;
+    }
+  }
+}
+
+.kanban {
+  &-main {
+    display: flex;
+    align-items: flex-start;
+    gap: 5px;
+    height: auto;
+    overflow-x: auto;
+  }
+
+  &-column {
+    @include kanban-column-style();
+
+    &-header {
+      min-width: 450px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    &-title {
+      display: flex;
+      align-items: center;
+      font-weight: bold;
+      gap: 10px;
+
+      > p {
+        @include p0-m0();
+      }
+    }
+
+    &-content {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+
+      .bd-highlight {
+        width: 100%;
+        .card {
+          width: 100%;
+
+          .text-truncate {
+            white-space: normal;
+          }
+        }
+      }
+
+      .panel-block.bd-highlight {
+        display: flex;
+        gap: 16px;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding: 16px 0;
+        min-height: 50px;
+        overflow-y: auto;
+        overflow-x: hidden;
+        max-height: 80vh;
+      }
+
+      .card {
+        transition: transform .15s cubic-bezier(.2,.8,.2,1), box-shadow .15s ease, border-color .15s ease;
+        position: relative;
+
+        cursor: grab;
+        user-select: none;
+      }
+
+      .card.dragging {
+        opacity: .25;
+        cursor: grabbing;
+        border: 3px dashed $secondary;
+        background: transparent;
+        box-shadow: none;
+        transition:
+          opacity .18s,
+          border-color .18s,
+          background .18s;
+      }
+
+      .card.dragging > .btn{
+        opacity:.15;
+        pointer-events:none;
+        transition: inherit;
+      }
+
+      .card > .btn:focus,
+      .card > .btn:active,
+      .card > .btn.focus {
+        outline: none;
+        box-shadow: none;
+        border-color: inherit !important;
+      }
+
+      .ticket-placeholder {
+        width: 100%;
+        min-height: 70px;
+        border: 2px dashed $primary;
+        border-radius: 8px;
+        margin-bottom: 16px;
+        pointer-events: none;
+      }
+    }
+
+    &-footer {
+      display: flex;
+      justify-content: center;
+
+      .add-button {
+        display: flex;
+        color: $secondary;
+        gap: 7px;
+        align-items: center;
+
+        p {
+          @include p0-m0();
+        }
+      }
+
+      button:hover, button:active {
+        text-decoration: none;
+      }
+    }
+
+    &-reverse {
+      @include kanban-column-style();
+
+      .kanban-column-content, .kanban-column-footer {
+        display: none;
+      }
+
+      .kanban-column-header {
+        min-width: 40px !important;
+        min-height: 200px !important;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        writing-mode: vertical-lr;
+        flex-direction: row-reverse;
+
+        p {
+          transform: scale(-1);
+        }
+      }
+    }
+
+    &-wrapper {
+      max-width: 33.33vw;
+      transition:
+        opacity .2s ease,
+        transform .2s ease,
+        filter .2s ease;
+
+      .kanban-column.drop-target{
+        background: $light-yiq;
+        transition:.15s;
+      }
+    }
+
+    &-wrapper.dragging-column {
+      cursor: grabbing ;
+      opacity: .35;
+
+      .kanban-column {
+        background: transparent;
+        border: 4px dashed $primary;
+        box-shadow: none;
+      }
+    }
+  }
+}

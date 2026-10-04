@@ -1,0 +1,3 @@
+#!/bin/bash
+
+./backend/exec touch tmp/restart.txt

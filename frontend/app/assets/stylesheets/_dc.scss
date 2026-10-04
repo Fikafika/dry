@@ -1,0 +1,9 @@
+@import 'dc/dist/style/dc';
+
+.dc-chart g.row text {
+  fill: var(--bs-emphasis-color-rgb);
+}
+
+.dc-chart .pie-slice {
+  fill: var(--bs-emphasis-color-rgb);
+}

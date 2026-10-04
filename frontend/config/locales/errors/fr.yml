@@ -1,0 +1,93 @@
+---
+fr:
+  activerecord:
+    errors:
+      messages:
+        record_invalid: 'La validation a échoué : %{errors}'
+        restrict_dependent_destroy:
+          has_one: Vous ne pouvez pas supprimer l'enregistrement car un(e) %{record} dépendant(e) existe
+          has_many: Vous ne pouvez pas supprimer l'enregistrement parce que les %{record} dépendants existent
+      models:
+        dynamic/schema/base:
+          attributes:
+            name:
+              taken_by_attribute: n'est pas disponible (déjà porté par un attribut)
+              taken_by_association: n'est pas disponible (déjà porté par une association)
+              taken_by_attachment: n'est pas disponible (déjà utilisé par une pièce jointe)
+        dynamic/schema/attribute/base:
+          attributes:
+            attr:
+              attr_is_not_string: L'attribut n'est pas de type text
+            column:
+              limit_exceeded: Le nombre limite de colonne de ce type est atteint
+        dynamic/schema/association/base:
+          attributes:
+            type:
+              multiple_record_associated: Un des enregistrement possède plus d'un enregistrement associé
+        dynamic/schema/feature:
+          attributes:
+            enabled:
+              dependent: La fonctionnalité dépendante %{name} doit être activée
+              missing_requirement: "Un prérequis est manquant: %{requirements}"
+            concerns:
+              missing: Module appliqué manquant
+        dynamic/schema/option/base:
+          attributes:
+            value:
+              klass_profile_too_small: "La table %{table_name} à un profil plus petit que %{profile}"
+    exceptions:
+      not_found: "%{model_name} non trouvé"
+      unauthorized: "Vous n'avez pas les droits suffisants"
+  errors:
+    format: "%{attribute} %{message}"
+    messages:
+      accepted: doit être accepté(e)
+      any_presence: "L'un des champs suivant doit être rempli : %{attrs}"
+      either_presence: "Seul l'un des champs suivant doit être rempli : %{attrs}"
+      blank: doit être rempli(e)
+      confirmation: ne concorde pas avec %{attribute}
+      empty: doit être rempli(e)
+      equal_to: doit être égal à %{count}
+      even: doit être pair
+      exclusion: n'est pas disponible
+      greater_than: doit être supérieur à %{count}
+      greater_than_or_equal_to: doit être supérieur ou égal à %{count}
+      inclusion: n'est pas inclus(e) dans la liste
+      invalid: n'est pas valide
+      less_than: doit être inférieur à %{count}
+      less_than_or_equal_to: doit être inférieur ou égal à %{count}
+      model_invalid: 'Validation échouée : %{errors}'
+      not_a_number: n'est pas un nombre
+      not_an_integer: doit être un nombre entier
+      odd: doit être impair
+      other_than: doit être différent de %{count}
+      present: doit être vide
+      required: doit exister
+      taken: n'est pas disponible
+      too_long:
+        one: est trop long (pas plus d'un caractère)
+        other: est trop long (pas plus de %{count} caractères)
+      too_short:
+        one: est trop court (au moins un caractère)
+        other: est trop court (au moins %{count} caractères)
+      wrong_length:
+        one: ne fait pas la bonne longueur (doit comporter un seul caractère)
+        other: ne fait pas la bonne longueur (doit comporter %{count} caractères)
+      invalid_syntax: syntaxe invalide
+      invalid_email: n'est pas un email
+      invalid_phone: n'est pas au format international
+      invalid_format: n'a pas le bon format
+      invalid_siren: n'est pas un SIREN valide
+      invalid_siret: n'est pas un SIRET valide
+      invalid_siren_siret: n'est pas un SIREN/SIRET valide
+      locked: verrouillé
+      content_type_invalid:
+        one: Le format de fichier est invalide (le seul format autorisé est le %{authorized_human_content_types})
+        other: Le format de fichier est invalide (les formats autorisés sont %{authorized_human_content_types})
+      file_size_not_less_than_or_equal_to: Le fichier doit avoir une taille inférieure ou égale à %{max} (la taille actuelle est %{file_size})
+      undefined_type: Le type est indéfini
+    template:
+      body: 'Veuillez vérifier les champs suivants : '
+      header:
+        one: 'Impossible d''enregistrer ce(tte) %{model} : 1 erreur'
+        other: 'Impossible d''enregistrer ce(tte) %{model} : %{count} erreurs'

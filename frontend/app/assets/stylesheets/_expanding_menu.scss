@@ -1,0 +1,38 @@
+.menu-editor {
+
+  display: grid;
+  grid-template-rows: 99fr 1fr;
+  grid-template-columns: 35fr 65fr;
+  max-height: 100vh;
+
+  .item-editor {
+    grid-area: 1 / 2 / 3 / 2;
+  }
+
+  .add-button-panel {
+    grid-area: 2 / 1 / 2 / 1;
+  }
+
+  .tree-panel {
+    grid-area: 1 / 1 / 1 / 1;
+  }
+
+  &-border {
+    border-style: dashed;
+    border-color: #0000FF;
+
+    &.top {
+      border-width: 1px 0px 0px 0px;
+    }
+    &.right {
+      border-width: 0px 1px 0px 0px;
+    }
+    &.left {
+      border-width: 0px 0px 0px 1px;
+    }
+    &.bottom {
+      border-width: 0px 0px 1px 0px;
+    }
+  }
+
+}

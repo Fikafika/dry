@@ -1,0 +1,58 @@
+.grid {
+
+  &-fluid {
+    display: grid;
+    grid-auto-rows: auto;
+    grid-auto-flow: row;
+
+    & > * {
+      align-self: start;
+    }
+  }
+
+  &-gap-1 {
+    column-gap: 10px;
+    row-gap: 10px;
+  }
+
+  @media only screen and (min-width: breakpoint-min(xl)) {
+    &-fluid-4 {
+      grid-template-columns: repeat(4, 1fr);
+    }
+    &-fluid-12 {
+      grid-template-columns: repeat(12, 1fr);
+    }
+  }
+  @media only screen and (min-width: breakpoint-min(lg)) and (max-width: breakpoint-min(xl)) {
+    &-fluid-4 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    &-fluid-12 {
+      grid-template-columns: repeat(8, 1fr);
+    }
+  }
+  @media only screen and (min-width: breakpoint-min(md)) and (max-width: breakpoint-min(lg)) {
+    &-fluid-4 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    &-fluid-12 {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+  @media only screen and (min-width: breakpoint-min(sm)) and (max-width: breakpoint-min(md)) {
+    &-fluid-4 {
+      grid-template-columns: repeat(1, 1fr);
+    }
+    &-fluid-12 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media only screen and (max-width: breakpoint-max(sm)) {
+    &-fluid-4 {
+      grid-template-columns: repeat(1, 1fr);
+    }
+    &-fluid-12 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}

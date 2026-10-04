@@ -1,0 +1,17 @@
+table.dataTable {
+
+  td.cell-without-padding {
+    padding: 0 !important;
+  }
+
+  table.sub_table {
+    width: 100% !important;
+
+    & > tbody > tr,
+    & > tr {
+      & > td:last-child {
+        border-bottom-width: 0;
+      }
+    }
+  }
+}

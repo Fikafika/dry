@@ -1,0 +1,161 @@
+
+@mixin step-list-item-variant($color) {
+
+  .step-list-item{
+    .step-list-bullet,
+    &:not(:first-child) .step-list-bullet::before {
+      background-color: darken($light, 7%);
+    }
+
+    &.done .step-list-bullet,
+    &.done .step-list-bullet::before {
+      background-color: $color;
+    }
+
+    // -----hover----------------------------------------
+    &:hover .step-list-bullet,
+    &:hover .step-list-bullet::before {
+      background-color: darken($light, 10%);
+    }
+
+    &.done:hover .step-list-bullet,
+    &.done:hover .step-list-bullet::before {
+      background-color: darken($color, 10%);
+    }
+  }
+
+  .step-list-item-inline {
+    .step-list-bullet, .step-list-bar {
+      background-color: darken($light, 7%);
+    }
+
+    &.done .step-list-bullet,
+    &.done .step-list-bar {
+      background-color: $color;
+    }
+
+    // -----hover----------------------------------------
+    &:hover .step-list-bullet,
+    &:hover .step-list-bar {
+      background-color: darken($light, 10%);
+    }
+
+    &.done:hover .step-list-bullet,
+    &.done:hover .step-list-bar {
+      background-color: darken($color, 10%);
+    }
+  }
+}
+
+.step-list-bar {
+  position: absolute;
+  height: 2px;
+  margin-top: 8px;
+  width: calc(100% + 3px);
+  right: 100%;
+}
+
+.step-list-text-inline {
+  cursor: pointer;
+  min-width: 100%;
+}
+
+.container-wrapper {
+  display: grid;
+}
+
+.step-list-bullet-elements {
+  margin-top: 20px;
+}
+
+.step-list-inline {
+  display: flex;
+  margin-bottom: 30px;
+
+  .step-list-item-inline {
+    position: relative;
+    display: flex;
+    align-items: end;
+    cursor: pointer;
+
+    .step-list-bullet {
+      position: relative;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background-color: $secondary;
+    }
+
+    &.done .step-list-bullet {
+      background-color: $primary;
+    }
+
+    // -----hover----------------------------------------
+    &:hover .step-list-bullet {
+      background-color: darken($secondary, 10%);
+    }
+    &.done:hover .step-list-bullet {
+      background-color: darken($primary, 10%);
+    }
+  }
+}
+
+.step-list {
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+  padding-left: 0;
+  margin-bottom: 0;
+
+
+  .step-list-item{
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+
+    .step-list-bullet{
+      position: relative;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background-color: $secondary;
+    }
+
+    &:not(:first-child) .step-list-bullet::before{
+      content: '';
+      position: absolute;
+      height: 15px;
+      width: 4px;
+      top: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: $secondary;
+    }
+
+    &.done .step-list-bullet,
+    &.done .step-list-bullet::before{
+      background-color: $primary;
+    }
+
+
+    // -----hover----------------------------------------
+    &:hover .step-list-bullet,
+    &:hover .step-list-bullet::before {
+      background-color: darken($secondary, 10%);
+    }
+    &.done:hover .step-list-bullet,
+    &.done:hover .step-list-bullet::before {
+      background-color: darken($primary, 10%);
+    }
+  }
+}
+
+// -----Contextual variants------------------------------
+@each $color, $value in $theme-colors {
+  .step-list-#{$color} {
+    @include step-list-item-variant($value);
+  }
+}
+

@@ -1,0 +1,40 @@
+.stackable {
+
+  &-list-group {
+    background-color: $list-group-bg;
+
+    .list-group-item  {
+      &:first-letter {
+        text-transform: capitalize;
+      }
+      div, small {
+        &:first-letter {
+          text-transform: capitalize;
+        }
+      }
+    }
+  }
+
+  &-panel-link {
+    > div > span {
+      &:first-letter {
+        text-transform: capitalize;
+      }
+    }
+  }
+
+  &-page {
+    border-left: $border-width solid $border-color;
+
+    &:first-child {
+      border-left: 0;
+    }
+  }
+
+  &-heading {
+    &:first-letter {
+      text-transform: capitalize;
+    }
+  }
+
+}

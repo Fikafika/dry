@@ -1,0 +1,30 @@
+fr:
+  format:
+    date: 'DD/MM/YYYY'
+    date_time: 'DD/MM/YYYY HH:mm:ss'
+    time_of_day: 'HH:mm:ss'
+    d3_format:
+      1ms: '%d/%m/%Y %H:%M:%S.%L'
+      1s: '%d/%m/%Y %H:%M:%S'
+      1m: '%d/%m/%Y %H:%M'
+      1h: '%d/%m/%Y %H'
+      1d: '%d/%m/%Y'
+      1w: '%d/%m/%Y'
+      1M: '%m/%Y'
+      1y: '%Y'
+
+
+en:
+  format:
+    date: 'DD/MM/YYYY'
+    date_time: 'DD/MM/YYYY HH:mm:ss'
+    time_of_day: 'HH:mm:ss'
+    d3_format:
+      1ms: '%m/%d/%Y %H:%M:%S.%L'
+      1s: '%m/%d/%Y %H:%M:%S'
+      1m: '%m/%d/%Y %H:%M'
+      1h: '%m/%d/%Y %H'
+      1d: '%m/%d/%Y'
+      1w: '%m/%d/%Y'
+      1M: '%m/%Y'
+      1y: '%Y'

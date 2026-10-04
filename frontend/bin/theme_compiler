@@ -1,0 +1,23 @@
+#!/usr/bin/env ruby
+
+require File.expand_path('../../config/environment', __FILE__)
+
+require 'logger'
+
+class MultiDelegator
+  def initialize(*targets)
+    @targets = targets
+  end
+
+  def method_missing(method_sym, *arguments, &block)
+    @targets.each do |target|
+      target.send(method_sym, *arguments, &block) if target.respond_to?(method_sym)
+    end
+  end
+end
+
+Rails.logger = MultiDelegator.new(Logger.new(STDOUT), Rails.logger)
+
+#sleep 5
+
+Dynamic::Theme::Compiler.run

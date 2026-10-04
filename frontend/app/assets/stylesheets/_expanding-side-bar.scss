@@ -1,0 +1,176 @@
+$expanding-sidebar-z: calc(#{$zindex-modal-backdrop} - 1) !default;
+
+@mixin expanding-side-bar-variant($color) {
+  .depth-0 {
+    background-color: $color;
+
+    .list-group-item {
+      &:hover {
+        background-color: darken($color, 7.5%);
+      }
+    }
+  }
+  .list-group-item {
+    background-color: transparent;
+  }
+  .depth-1 {
+    background-color: darken($color, 7.5%) !important;
+
+    .list-group-item {
+      &:hover {
+        background-color: darken(darken($color, 7.5%), 7.5%);
+      }
+    }
+  }
+
+
+  & > * {
+    @if $expanding-side-bar-enable-border {
+      border-width: 0 $border-width 0 0;
+      border-color: $border-color;
+      border-style: solid;
+    }
+
+    @include box-shadow($modal-content-box-shadow-xs);
+  }
+}
+
+
+$fa-fw-em: 1.25;
+$fa-2x-coeff: 2;
+
+$bar-width: ($font-size-base * $fa-fw-em * $fa-2x-coeff) + 2 * $btn-padding-x;
+$bar-top: $toolbar-height;
+
+$transition-duration: 300ms;
+$depth-1-transition-delay: 100ms;
+$depth-1-transition-delay-out: $depth-1-transition-delay + 100ms;
+
+$depth-1-transition: opacity 0.1s $depth-1-transition-delay, visibility 0.1s $depth-1-transition-delay;
+$depth-1-transition-out: opacity 0.1s $depth-1-transition-delay-out, visibility 0.1s $depth-1-transition-delay-out;
+
+$expanding-side-bar-enable-border: true !default;
+
+$expanding-side-bar-expanded-width: $bar-width * 3;//160px;
+
+$expanding-side-bar-height: calc(100vh - #{$bar-top});
+
+.expanding-side-bar {
+  // position: fixed;
+
+  span {
+    min-width: $bar-width * 2;
+  }
+
+  @media only screen and (min-width: breakpoint-min(md)) {
+    &-offset {
+      margin-left: $bar-width;
+    }
+  }
+
+  &-padding {
+    padding-left: $bar-width;
+  }
+
+  ul { //all menus in expanding sidebar
+    //Chrome
+    &::-webkit-scrollbar {
+      //display: none;
+      width: 0 !important;
+    }
+
+    // Firefox
+    scrollbar-width: none;
+
+    // IE
+    -ms-overflow-style: none;
+    overflow: auto;
+  }
+
+  .depth-0 {
+    position: fixed;
+    height: $expanding-side-bar-height;
+    width: $bar-width;
+    top: $bar-top;
+    overflow: hidden;
+    transition: width $transition-duration;
+    z-index: $expanding-sidebar-z;
+
+     & > li > a span {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .list-group-item {
+      border-radius: 0;
+      border: none;
+    }
+
+  } //end of depth-0
+
+  .depth-1 {
+    position: fixed;
+    left: $expanding-side-bar-expanded-width;
+    width: $expanding-side-bar-expanded-width;
+    top: $bar-top;
+    height: $expanding-side-bar-height;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0s 0s, visibility 0s 0s;
+    max-height: $expanding-side-bar-height; //var(--window-height);
+    overflow-y: auto;
+  }
+
+
+  .list-group-item {
+    //background-color: transparent;
+    border: none;
+
+    .btn {
+      width: $expanding-side-bar-expanded-width;
+      // using w-100 class on buttons creates a glitch on transition. without, the clickable part of <li> is half. This is the only solution I have found.
+      transition: none !important; // in order to prevent inverted color while transition of selection
+    }
+  }
+
+
+  &.hover { // enable hover only if this class is added to sidebar
+
+    .depth-0 {
+
+      &:hover > li > a span {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      &:hover {
+        width: $expanding-side-bar-expanded-width;
+      }
+    }
+  }
+
+  &.expanded { // enable hover only if this class is added to sidebar
+
+    .depth-1 {
+      transition: $depth-1-transition-out;
+    }
+
+    .depth-0 li:hover .depth-1 {
+      transition: $depth-1-transition;
+      visibility: visible;
+      opacity: 1;
+    }
+
+  }
+
+
+
+  @each $color, $value in $theme-colors {
+    &.expanding-side-bar {
+      &-#{$color} {
+        @include expanding-side-bar-variant($value);
+      }
+    }
+  }
+
+} // end of expanding

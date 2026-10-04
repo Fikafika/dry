@@ -1,0 +1,22 @@
+fr:
+  datatable:
+    processing:    "Chargement..."
+    lengthMenu:    "Afficher _MENU_ résultats"
+    zeroRecords:   "Aucun résultat"
+    emptyTable:    "Aucun résultat"
+    info:          "_START_ - _END_ / _TOTAL_"
+    infoEmpty:     "Aucun résultat"
+    infoFiltered:  "(filtré d'un total de _MAX_ résultats)"
+    infoPostFix:   ""
+    search:        "Rechercher"
+    url:           ""
+    infoThousands:  ","
+    loadingRecords: "Chargement..."
+    paginate:
+      first:    '<i class="fas fa-angle-double-left"></i>'
+      last:    '<i class="fas fa-angle-double-right"></i>'
+      next:    '<i class="fas fa-angle-right"></i>'
+      previous: '<i class="fas fa-angle-left"></i>'
+    aria:
+      sortAscending:  ": Activer pour trier la colonne de façon ascendante"
+      sortDescending: ": Activer pour trier la colonne de façon descendente"

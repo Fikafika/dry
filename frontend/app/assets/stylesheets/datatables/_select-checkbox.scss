@@ -1,0 +1,92 @@
+// fix size of checkbox column
+.select-checkbox {
+  min-width: 15px !important;
+  width: 15px !important;
+}
+
+$checkbox-selected-color: '#B0BED9';
+
+$checkbox-font-size: 12px;
+
+// checkbox
+table.dataTable {
+  tbody {
+
+    td.select-checkbox:before,
+    th.select-checkbox:before,
+    tr.selected td.select-checkbox:after,
+    tr.selected th.select-checkbox:after {
+      position: absolute;
+      margin: auto;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      border: none;
+      font-family: 'Font Awesome 6 Free';
+      text-shadow: none;
+      line-height: 100%;
+      font-size: $checkbox-font-size;
+      vertical-align: middle;
+      text-align: center;
+      width: fit-content;
+      height: fit-content;
+      cursor: pointer;
+      font-weight: 400; // fa-regular
+    }
+
+    td.select-checkbox:before,
+    th.select-checkbox:before {
+      content: '\f0c8';
+    }
+
+    //checked
+    tr.selected {
+      td.select-checkbox:after,
+      th.select-checkbox:after {
+        content: '\f14a';
+      }
+    }
+  }
+}
+
+// select-all-rows
+.dataTables_scrollBody {
+  .select-all-rows,
+  .select-all-rows:before,
+  .select-all-rows:after {
+    display: none;
+  }
+}
+
+table.dataTable {
+  .select-all-rows:before,
+  .select-all-rows:after {
+    display: block;
+    font-size: $checkbox-font-size;
+    line-height: 100%;
+    box-sizing: border-box;
+    text-align: center;
+    cursor: pointer;
+    font-weight: 400; // fa-regular
+  }
+
+  .select-all-rows:before {
+    font-family: 'Font Awesome 6 Free';
+    content: '\f0c8';
+
+    &.selected {
+      content: '\f14a';
+      font-weight: 900; // fa-solid
+    }
+
+    &.indeterminate {
+      content: '\f146';
+      font-weight: 900; // fa-solid
+    }
+  }
+}
+
+.dtfc-fixed-left {
+  z-index: 1000; // fix checkboxes under scrolled rows
+}

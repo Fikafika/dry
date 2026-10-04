@@ -1,0 +1,16 @@
+table.dataTable {
+
+  $icon-size: 1.5em;
+  $icon-font-size: 0.7em;
+
+  .cell-img {
+    display: inline-block;
+    max-width: $icon-size * 3;
+    height: $icon-size;
+    line-height: $icon-size;
+    text-align: center;
+    object-fit: cover;
+    font-size: $icon-font-size;
+  }
+
+}

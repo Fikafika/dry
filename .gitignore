@@ -1,0 +1,14 @@
+# Caches et dépendances locales
+.cache/
+node_modules/
+
+# Configuration locale / secrets
+.env
+*.env
+config/master.key
+
+# Historiques et logs
+.irb-history
+.byebug_history
+sidekiq_test_logs/
+test_logs/

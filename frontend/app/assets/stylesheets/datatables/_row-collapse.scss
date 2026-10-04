@@ -1,0 +1,17 @@
+$collapse_icon_width: 10.5px;
+
+table.dataTable {
+
+  .collapse-indent {
+    line-height: 1em;
+    user-select: none;
+    padding-right: 5px;
+
+    @each $depth in 0, 1, 2, 3, 4, 5 {
+      &-#{$depth} {
+        padding-left: $collapse_icon_width * $depth;
+      }
+    }
+  }
+
+}

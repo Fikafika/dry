@@ -1,0 +1,4 @@
+production:
+  adapter: redis
+  url: <%= ENV['REDIS_HOST'] %>
+  channel_prefix: backend_production

@@ -1,0 +1,124 @@
+// $modal-side-panel-left-transform: translate(-100%, 0) !default;
+// $modal-side-panel-right-transform: translate(100%, 0) !default;
+$modal-transition: .3s ease-out !default;
+
+// @mixin sidepanel($size, $modal-width) {
+//
+//   &-#{$size} {
+//     // max-width: 100%;
+//     .modal-dialog {
+//       width: $modal-width;
+//     }
+//
+//     &[data-backdrop=false] {
+//       width: $modal-width;
+//       max-width: 90%;
+//     }
+//   }
+// }
+
+.modal.comp-field-modal {
+    z-index: 1052 !important;
+}
+
+.modal.import-data-modal {
+  //z-index: 1040; // rigth panel is above (z-index: 1050)
+
+  &.mode-window {
+
+    width: 50%;
+
+    &[data-backdrop=false] {
+      width: 50%;
+      right: 0;
+      left: unset;
+    }
+
+    .modal-dialog {
+      @include transition($modal-transition);
+      position: fixed;
+      right:0;
+      //bottom:0;
+      width: 50%;
+      max-width: 50%;
+      height: 100%;
+      max-height: 100%;
+
+      .modal-content {
+        heigth: 100%;
+      }
+    }
+  }
+
+  &.mode-minimize {
+
+    width: 50%;
+    height: 0%;
+
+    &[data-backdrop=false] {
+      width: 50%;
+      right: 0;
+      left: unset;
+    }
+
+    .modal-dialog {
+      position: fixed;
+      width: 50%;
+      max-width: 50%;
+      height: 6% !important; // TODO: find a better solution
+      bottom: 0;
+      top: unset;
+
+      .modal-content {
+        .modal-body {
+          display: none;
+        }
+        .modal-footer {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .dropdown-menu {
+    min-width: 50px;
+  }
+
+  [data-toggle="collapse"] .fa:before {
+    content: "\f077";
+  }
+
+  [data-toggle="collapse"].collapsed .fa:before {
+    content: "\f078";
+  }
+
+  // .collapse-header button:after {
+  //   font-family:Fontawesome;
+  //   content:'\f077';
+  //   float:right;
+  //   font-size:10px;
+  //   font-weight:300;
+  // }
+  //
+  // .collapse-header button.collapsed:after {
+  //   font-family:Fontawesome;
+  //   content:'\f078';
+  // }
+
+}
+
+// .modal:nth-of-type(even) {
+//     z-index: 1052 !important;
+// }
+// .modal-backdrop.show:nth-of-type(even) {
+//     z-index: 1051 !important;
+// }
+
+
+// .modal.comp-field-modal {
+//
+//   .modal-dialog {
+//     background-color: red ;
+//   }
+//
+// }

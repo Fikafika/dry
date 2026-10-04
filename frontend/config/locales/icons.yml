@@ -1,0 +1,90 @@
+fr:
+  icons: &icons
+    models:
+      dynamic/chart/bar: chart-column
+      dynamic/chart/base: chart-simple
+      dynamic/chart/line: chart-line
+      dynamic/chart/pie: chart-pie
+      dynamic/chart/row: chart-bar
+      dynamic/chart/table: table
+
+      dynamic/schema: sitemap
+      dynamic/schema/klass: window-maximize
+      dynamic/schema/association/base: arrow-right
+      dynamic/schema/association/belongs_to: angle-right
+      dynamic/schema/association/has_many: angles-right
+      dynamic/schema/attachment/base: paperclip
+      dynamic/schema/attachment/variant: crop-simple
+      dynamic/schema/cascade/base: key
+      dynamic/schema/attribute/base: minus
+      dynamic/schema/attribute/date: calendar
+      dynamic/schema/attribute/date_time: calendar fa-regular
+      dynamic/schema/attribute/enum: list
+      dynamic/schema/attribute/string: font
+      dynamic/schema/attribute/text: paragraph
+      dynamic/schema/attribute/time_of_day: clock
+      dynamic/schema/attribute/integer: info
+      dynamic/schema/attribute/float: info # TODO
+      dynamic/schema/attribute/boolean: check
+      dynamic/schema/attribute/phone: phone
+      dynamic/schema/attribute/siret: building
+      dynamic/schema/attribute/enum/value: list-ol
+      dynamic/schema/attribute/uuid: underline
+      dynamic/schema/attribute/translatable_string: language
+      dynamic/schema/attribute/translatable_text: language
+      dynamic/schema/feature: cog
+      dynamic/schema/concern: cube
+      dynamic/schema/migration/base: database
+      dynamic/schema/validation/base: check-circle
+      dynamic/schema/normalization/base: mail-bulk
+      dynamic/schema/sequence: arrow-down-1-9
+
+      dynamic/doc_gen/template: file-invoice
+      dynamic/doc_gen/wrapper_template: envelope-open-text
+      dynamic/doc_gen/merge/pdf_template: file-pdf
+      dynamic/doc_gen/merge/zip_template: file-archive
+      dynamic/doc_gen/merge/file: copy
+      dynamic/doc_gen/merge/attribute_file: file-excel
+      dynamic/doc_gen/merge/template_file: file-invoice
+      dynamic/doc_gen/merge/static_file: file-medical
+      dynamic/copy/mapping: left-right
+      dynamic/copy/setting: clone
+      dynamic/email_order/base: envelope
+      dynamic/export/setting: file-export
+      dynamic/form: list
+      dynamic/import/setting: file-import
+      dynamic/knewsletter: envelope
+      dynamic/layout: list-alt
+      dynamic/mail_hosting/rule: envelope-square
+      dynamic/theme: palette
+      dynamic/elasticsearch: binoculars
+      dynamic/merge/setting: object-group
+      dynamic/knewsletter: envelope
+      dynamic/redirection: diamond-turn-right
+      dynamic/transaction/applicable_amount/rule: money-check-alt
+
+      uneek_permission/rule: 'user-lock'
+      uneek_permission/predefined_receiver/public: 'globe-europe'
+    crm:
+      settings: cogs
+    apps:
+      dynamo: table
+      knewsletter: envelope-open-text
+      uneek_workflow: project-diagram
+      dynamo_settings: wrench
+      pwachat: comment
+      chat: comment # TODO remove
+      docconv: file-code
+      mail_hosting: envelope
+      code: code
+    protocols:
+      http: link
+      mailto: envelope
+      tel: phone
+      sms: sms
+    settings:
+      appearance: paint-roller
+
+en:
+  icons:
+    <<: *icons

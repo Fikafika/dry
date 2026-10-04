@@ -1,0 +1,34 @@
+
+@import 'react-grid-layout/css/styles';
+
+.react-grid-item {
+
+  #drag-zone {
+    flex-grow: 1;
+  }
+  &.react-draggable  #drag-zone {
+    cursor: move;
+  }
+  .card-header {
+    min-height: 25px;
+    padding: 0;
+    position: absolute;
+    width: 100%;
+    z-index: 500;
+    visibility: hidden;
+  }
+
+  .card:hover .card-header {
+    visibility: visible;
+  }
+
+  &.react-grid-placeholder {
+    background: #606060 !important;
+  }
+  &.react-draggable-dragging, &.resizing {
+    opacity: 0.7;
+  }
+  .react-resizable-handle {
+    z-index: 400;
+  }
+}

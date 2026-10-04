@@ -1,0 +1,60 @@
+// change color of thead
+//.dataTables_scrollHead,
+//div.DTFC_LeftHeadWrapper table,
+//div.DTFC_RightHeadWrapper table,
+//div.DTFC_LeftHeadWrapper table.DTFC_Cloned tr,
+//div.DTFC_RightHeadWrapper table.DTFC_Cloned tr {
+  //background: map-get($theme-colors, "light");
+//}
+
+
+// override sort arrows
+table.dataTable.table-sm > thead > tr > th,
+table.dataTable thead > tr > th.sorting_asc,
+table.dataTable thead > tr > th.sorting_desc,
+table.dataTable thead > tr > th.sorting,
+table.dataTable thead > tr > td.sorting_asc,
+table.dataTable thead > tr > td.sorting_desc,
+table.dataTable thead > tr > td.sorting {
+  padding-right: 0.3rem;
+}
+
+table.dataTable thead .sorting,
+table.dataTable thead .sorting_asc,
+table.dataTable thead .sorting_desc,
+table.dataTable thead .sorting_asc_disabled,
+table.dataTable thead .sorting_desc_disabled {
+  &:before,
+  &:after {
+    content: ''; // hide datatable arrows
+  }
+}
+
+
+table.dataTable thead > tr > th.sorting_desc,
+table.dataTable thead > tr > td.sorting_desc {
+  .column-title:before {
+    font-family: 'Font Awesome 6 Free';
+    content: '\f107';
+    margin-right: 5px;
+  }
+}
+
+table.dataTable thead > tr > th.sorting_asc,
+table.dataTable thead > tr > td.sorting_asc {
+  .column-title:before {
+    font-family: 'Font Awesome 6 Free';
+    content: '\f106';
+    margin-right: 5px;
+  }
+}
+
+table.dataTable {
+  .column-title {
+    line-height: 2em;
+  }
+
+  .column-min-width {
+    min-width: 150px;
+  }
+}

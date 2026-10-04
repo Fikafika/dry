@@ -1,0 +1,14 @@
+.expandable-block {
+  &-card-body {
+    max-height: 20vh;
+  }
+
+  [aria-expanded=true] {
+    .expandable-block-chevron {
+      transform: rotate(90deg);
+    }
+  }
+}
+
+
+
