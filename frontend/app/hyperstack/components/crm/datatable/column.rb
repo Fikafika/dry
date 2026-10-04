@@ -533,8 +533,10 @@ class Crm
           if protocols.present?
             prefered_protocol = protocols.first
             protocol_formated = 'http' == prefered_protocol ? '' : "#{prefered_protocol}:"
+            # hypertext links open in a new tab
+            target_attributes = 'http' == prefered_protocol ? ' target="_blank" rel="noopener noreferrer"' : ''
 
-            inner_html = %Q[<a href="#{protocol_formated}#{value}" x-record-id=#{record_id} x-record-type=#{klass.name}>#{value}</a>]
+            inner_html = %Q[<a href="#{protocol_formated}#{value}"#{target_attributes} x-record-id=#{record_id} x-record-type=#{klass.name}>#{value}</a>]
           else
             inner_html = value
           end
