@@ -27,6 +27,7 @@ class Crm
 
       class Base
         include UrlHelper
+        include Protocol::Helpers
 
         attr_accessor :name
         attr_accessor :css_class
@@ -532,11 +533,8 @@ class Crm
           protocols = klass.protocols_for_attributes[method_name.to_sym]
           if protocols.present?
             prefered_protocol = protocols.first
-            protocol_formated = 'http' == prefered_protocol ? '' : "#{prefered_protocol}:"
-            # hypertext links open in a new tab
-            target_attributes = 'http' == prefered_protocol ? ' target="_blank" rel="noopener noreferrer"' : ''
 
-            inner_html = %Q[<a href="#{protocol_formated}#{value}"#{target_attributes} x-record-id=#{record_id} x-record-type=#{klass.name}>#{value}</a>]
+            inner_html = %Q[<a href="#{protocol_href(prefered_protocol, value)}"#{link_target_html_attributes(prefered_protocol)} x-record-id=#{record_id} x-record-type=#{klass.name}>#{value}</a>]
           else
             inner_html = value
           end

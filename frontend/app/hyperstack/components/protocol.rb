@@ -5,9 +5,22 @@ module Protocol; extend ActiveSupport::Concern
       protocol == 'http' ? '' : "#{protocol}:"
     end
 
+    def protocol_href(protocol, value)
+      "#{formated_protocol(protocol)}#{value}"
+    end
+
     # hypertext links open in a new tab
+    def open_in_new_tab?(protocol)
+      protocol == 'http'
+    end
+
     def link_target_attributes(protocol)
-      protocol == 'http' ? {target: '_blank', rel: 'noopener noreferrer'} : {}
+      open_in_new_tab?(protocol) ? {target: '_blank', rel: 'noopener noreferrer'} : {}
+    end
+
+    # same attributes, for links rendered as raw html (datatable cells)
+    def link_target_html_attributes(protocol)
+      link_target_attributes(protocol).map { |name, value| %Q[ #{name}="#{value}"] }.join
     end
   end
 
@@ -71,14 +84,14 @@ module Protocol; extend ActiveSupport::Concern
     end
 
     render do
-      A(href: "#{formated_protocol(protocol)}#{value}", **link_target_attributes(protocol), **other_attributes) do
+      A(href: protocol_href(protocol, value), **link_target_attributes(protocol), **other_attributes) do
         children.render
       end
     end
 
     def update_value(new_value)
       value = new_value
-      self.jq_node.attr('href', "#{formated_protocol(protocol)}#{value}")
+      self.jq_node.attr('href', protocol_href(protocol, value))
     end
 
   end
