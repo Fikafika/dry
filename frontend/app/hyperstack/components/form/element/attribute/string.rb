@@ -140,8 +140,15 @@ class Form
           prefered_protocol = protocols.first
           DIV(class: 'input-group text-truncate') do
             prepend_protocol_dropdown(protocols, prefered_protocol, value) if protocols.count > 1
-            A(href: "#{formated_protocol(prefered_protocol)}#{value}", class: 'text-truncate', title: value, **link_target_attributes(prefered_protocol)) do
+            href = "#{formated_protocol(prefered_protocol)}#{value}"
+            A(href: href, class: 'text-truncate', title: value, **link_target_attributes(prefered_protocol)) do
               value
+            end.on(:click) do |event|
+              # hypertext links open in a new tab, like in the datatable
+              next unless prefered_protocol == 'http'
+              event.prevent_default
+              event.stop_propagation
+              `window.open(#{href}, '_blank', 'noopener,noreferrer')`
             end
           end
         end
