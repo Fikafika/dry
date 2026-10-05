@@ -354,7 +354,7 @@ class Form
               empty_and_show_placeholder? ? placeholder : edit_in_place_displayed_value
             end
           end.on(:click) do |event|
-            next if event.target['nodeName'] == 'A'
+            next if ::Element[event.target.to_n].closest('a').length > 0
             event.prevent_default
             @edit = true
             mutate

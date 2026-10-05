@@ -58,7 +58,7 @@ class Form
               end
             end
           end.on(:click) do |event|
-            next if event.target['nodeName'] == 'A'
+            next if ::Element[event.target.to_n].closest('a').length > 0
             event.prevent_default
             @edit = true
             mutate
