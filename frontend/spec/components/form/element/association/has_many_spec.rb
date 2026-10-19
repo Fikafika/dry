@@ -880,6 +880,75 @@ describe 'Form::Element::Association::HasMany', type: :system do
         end
 
       end
+
+      context 'editor = step' do
+        context 'dynamic_form' do
+          before(:each) do
+            mount do
+              dynamic_form = Dynamic::Form.new(
+                id: '018c44ad-0560-7036-b067-9d4efc03476f',
+                klass_name: 'Record',
+                mode: 'input',
+                elements: [
+                  {
+                    id: '018c44ad-3b9e-78cc-991e-6c15fdd6263d',
+                    klass_name: 'Record',
+                    root_klass_name: 'Record',
+                    method_names: [],
+                    attribute_name: 'nesteds',
+                    mode: nil,
+                    editor: 'step',
+                    normalized_input_prefix: 'record@0',
+                    type: 'Association::HasMany',
+                    possible_values: [
+                      {
+                        value_record: { id: 'f0e19422-c637-460b-aa49-b1819d9f300d', type: 'Nested', name: 'value 1' },
+                        position: 0,
+                      },
+                      {
+                        value_record: { id: 'f0e19422-c637-460b-aa49-b1819d9f300e', type: 'Nested', name: 'value 2' },
+                        position: 1,
+                      },
+                    ],
+                  },
+                ],
+                serialized_record_for_input_prefix: {
+                  'record@0': {
+                    'id': nil,
+                  },
+                },
+              )
+              dynamic_form.status_code = 200 # dynamic_form.loaded? must be true
+              Form(dynamic_form: dynamic_form)
+            end
+          end
+
+          it 'should show a step for each possible value' do
+            expect(page).to have_css('.step-list .step-list-item', count: 2)
+            expect(page).to have_content('value 1')
+            expect(page).to have_content('value 2')
+          end
+
+          it 'should mark the clicked step and the previous ones as done' do
+            find_all('.step-list-item').last.click
+            expect(page).to have_css('.step-list-item.done', count: 2)
+          end
+
+          it 'should replace the previously selected value' do
+            find_all('.step-list-item').first.click
+            find_all('.step-list-item').last.click
+
+            expect(
+              page_eval do
+                Form.current.submission.params.to_n
+              end
+            ).to eq({
+              "record@0.nesteds@0" => {"id" => "f0e19422-c637-460b-aa49-b1819d9f300d", "_destroy" => 1},
+              "record@0.nesteds@1" => {"id" => "f0e19422-c637-460b-aa49-b1819d9f300e"}
+            })
+          end
+        end
+      end
     end
 
     context 'element.mode = nested_form' do

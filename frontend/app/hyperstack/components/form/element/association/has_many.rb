@@ -352,6 +352,12 @@ class Form
           return result
         end
 
+        # step -------------------------------------------------------------------
+
+        def change_step_value(value)
+          change_value(HyperResource::Relation.new(value.class, association: record.association(association_name), records: [value]))
+        end
+
         # read only ---------------------------------------------------------------
 
         def read_only_displayed_value

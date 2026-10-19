@@ -16,12 +16,14 @@ class Form
             if ['radio', 'radio_inline', 'checkbox', 'checkbox_inline'].include?(record.editor)
               value_position_parameter
               show_value_parameter
+            end
+            if editor_with_possible_values?
               values_limit_parameter
             end
             mode_parameter
             create_record_when_not_changed_parameter
             min_max_parameters
-            if ['radio', 'radio_inline', 'checkbox', 'checkbox_inline', 'select2', 'tom_select', nil].include?(record.editor)
+            if editor_with_possible_values? || ['select2', 'tom_select', nil].include?(record.editor)
               ::Form::Element::Layout::Accordion(
                 title: I18n.t('activerecord.values.dynamic/form/element/base.section.sorting'),
                 style: accordion_style
@@ -35,7 +37,7 @@ class Form
             ) do
               filters_parameter
             end
-            if ['radio', 'radio_inline', 'checkbox', 'checkbox_inline'].include?(record.editor)
+            if editor_with_possible_values?
               ::Form::Element::Layout::Accordion(
                 title: I18n.t('activerecord.values.dynamic/form/element/base.section.possible_value'),
                 style: accordion_style
@@ -55,6 +57,10 @@ class Form
             condition_parameter
             errors_from_parameter
             disabled_parameter
+          end
+
+          def editor_with_possible_values?
+            ['radio', 'radio_inline', 'checkbox', 'checkbox_inline', 'step', 'step_inline'].include?(record.editor)
           end
 
           def sorting_parameter

@@ -583,6 +583,8 @@ module Dynamic
             'select': 5,
             select2: 102,
             hidden: 7,
+            step: 9,
+            step_inline: 9,
           }
 
           enum mode: {
@@ -602,6 +604,8 @@ module Dynamic
             radio: 4,
             'select': 5,
             radio_inline: 4,
+            step: 9,
+            step_inline: 9,
             hidden: 7,
           }
 

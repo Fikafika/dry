@@ -651,6 +651,72 @@ class Form
           end
         end
 
+        # step -------------------------------------------------------------------
+
+        def render_input_step_inline
+          render_input_step(true)
+        end
+
+        def render_input_step(inline = false)
+          layout_input do
+            step_input(inline)
+            input_errors
+          end
+        end
+
+        def step_input(inline = false)
+          items = possible_values_or_records
+          DIV(step_args(inline)) do
+            items.each_with_index.map do |item, index|
+              done = items.slice(index..-1).any? { |following| checked?(following) }
+              if inline
+                DIV(class: 'container container-wrapper pl-0 mr-2') do
+                  DIV(class: "step-list-text-inline") { render_label(item) }
+                  DIV(class: "step-list-item-inline#{' done' if done}") do
+                    DIV(class: "step-list-bullet-elements") do
+                      DIV(class: "d-flex w-100") do
+                        if index > 0
+                          DIV(class: "step-list-bar #{'done' if done}")
+                        end
+                        DIV(class: "step-list-bullet")
+                      end
+                    end
+                  end
+                end.on(:click) do
+                  select_step_value(item)
+                end
+              else
+                DIV(class: "step-list-item#{' done' if done}") do
+                  DIV(class: "step-list-bullet")
+                  DIV(class: "step-list-text") { render_label(item) }
+                end.on(:click) do
+                  select_step_value(item)
+                end
+              end
+            end
+          end
+        end
+
+        def step_args(inline)
+          result = {
+            name: input_name,
+            class: "step-list#{'-inline' if inline} step-list-primary"
+          }
+          result[:disabled] = "disabled" if disabled
+          result[:readonly] = "readonly" if readonly
+          result[:"aria-describedby"] = "help-#{form_group_id}" if help.present?
+          return result
+        end
+
+        def select_step_value(item)
+          return if disabled || readonly
+          change_step_value(item[:value] || item)
+        end
+
+        def change_step_value(value)
+          # redefined
+        end
+
         def render_input_hidden
           unless in_editor
             values = selected_values

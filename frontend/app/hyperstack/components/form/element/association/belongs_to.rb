@@ -181,6 +181,12 @@ class Form
           render_input_radio(true)
         end
 
+        # step -------------------------------------------------------------------
+
+        def change_step_value(value)
+          change_value(value)
+        end
+
         # read only ---------------------------------------------------------------
 
         def read_only_displayed_value
