@@ -3,9 +3,6 @@ class Form
     module Association
       class BelongsTo < Base
 
-        param :value_position, default: nil
-        param :show_value, default: true
-
         render { content }
 
         def association_name
@@ -144,27 +141,8 @@ class Form
 
         def render_input_radio(inline = false)
           layout_input do
-            if value_position == 'top' && inline == true
-              # TODO improve this mode
-              DIV(class: 'text-left') do
-                render_possible_values_or_records_top(inline) do |id, value|
-                  input_radio(id, value)
-                end
-              end
-            elsif value_position == 'top' && inline == false
-              render_possible_values_or_records_top(inline) do |id, value|
-                input_radio(id, value)
-              end
-            elsif (value_position == 'right' || value_position.nil?) && inline == true
-              DIV(class: 'text-left') do
-                render_possible_values_or_records_right(inline) do |id, value|
-                  input_radio(id, value)
-                end
-              end
-            elsif (value_position == 'right' || value_position.nil?) && inline == false
-              render_possible_values_or_records_right(inline) do |id, value|
-                input_radio(id, value)
-              end
+            render_possible_values_or_records(inline) do |id, value|
+              input_radio(id, value)
             end
             input_errors
           end
@@ -173,41 +151,6 @@ class Form
         def input_radio(id, value)
           INPUT(input_radio_args.merge(id: id, checked: checked?(value), value: value.id)).on(:change) do |event|
             change_value(value)
-          end
-        end
-
-        def render_possible_values_or_records_right(inline)
-          possible_values_or_records.each_with_index do |possible_value_or_record, i|
-            id = value_id(i)
-            DIV(class: "form-check #{inline ? 'form-check-inline' : ''}") do
-              value = possible_value_or_record[:value] ? possible_value_or_record[:value] : possible_value_or_record
-              label = render_label(possible_value_or_record)
-              yield(id, value)
-              LABEL(class: 'form-check-label', htmlFor: id) do
-                show_value ? label : ''
-              end
-            end
-          end
-        end
-
-        def render_possible_values_or_records_top(inline)
-          possible_values_or_records.each_with_index do |possible_value_or_record, i|
-            id = value_id(i)
-            DIV(class: "form-check #{inline ? 'form-check-inline' : ''}") do
-              value = possible_value_or_record[:value] ? possible_value_or_record[:value] : possible_value_or_record
-              label = render_label(possible_value_or_record)
-              SPAN(class: "text-center") do
-                LABEL(class: '', htmlFor: id) do
-                  DIV(class: show_value ? 'no-height' : '') do # TODO class no-height
-                    show_value ? label : ''
-                  end
-                  yield(id, value)
-                end
-              end
-            end
-            LABEL(class: '') do
-              ''
-            end
           end
         end
 

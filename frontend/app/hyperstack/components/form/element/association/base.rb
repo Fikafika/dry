@@ -10,6 +10,9 @@ class Form
         include Hyperstack::Router::Helpers
         include TomSelect
 
+        param :value_position, default: nil
+        param :show_value, default: true
+
         after_new_params do
           init_association_min_max
         end
@@ -591,6 +594,61 @@ class Form
 
         def render_input_select2 # keep compatibility when editor == 'select2'
           render_input_select
+        end
+
+        def render_possible_values_or_records(inline, &block)
+          with_inline_enabled(inline) do
+            if value_position == 'top'
+              render_possible_values_or_records_top(inline, &block)
+            else
+              render_possible_values_or_records_right(inline, &block)
+            end
+          end
+        end
+
+        def with_inline_enabled(inline)
+          if inline
+            DIV(class: 'text-left') do
+              yield
+            end
+          else
+            yield
+          end
+        end
+
+        def render_possible_values_or_records_right(inline)
+          possible_values_or_records.each_with_index do |possible_value_or_record, i|
+            id = value_id(i)
+            DIV(class: "form-check #{inline ? 'form-check-inline' : ''}") do
+              value = possible_value_or_record[:value] ? possible_value_or_record[:value] : possible_value_or_record
+              label = render_label(possible_value_or_record)
+              yield(id, value)
+              LABEL(class: 'form-check-label', htmlFor: id) do
+                show_value ? label : ''
+              end
+            end
+          end
+        end
+
+        def render_possible_values_or_records_top(inline)
+          possible_values_or_records.each_with_index do |possible_value_or_record, i|
+            id = value_id(i)
+            DIV(class: "form-check #{inline ? 'form-check-inline' : ''}") do
+              value = possible_value_or_record[:value] ? possible_value_or_record[:value] : possible_value_or_record
+              label = render_label(possible_value_or_record)
+              SPAN(class: "text-center") do
+                LABEL(class: '', htmlFor: id) do
+                  DIV(class: show_value ? 'no-height' : '') do # TODO class no-height
+                    show_value ? label : ''
+                  end
+                  yield(id, value)
+                end
+              end
+            end
+            LABEL(class: '') do
+              ''
+            end
+          end
         end
 
         def render_input_hidden
