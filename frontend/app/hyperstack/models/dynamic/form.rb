@@ -556,6 +556,7 @@ module Dynamic
         class Enum < Base
           enum editor: {
             radio: 4,
+            'select': 5,
             radio_inline: 4,
             hidden: 7,
             step: 9,
