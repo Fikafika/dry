@@ -184,7 +184,12 @@ class Form
         # step -------------------------------------------------------------------
 
         def change_step_value(value)
-          change_value(value)
+          if mode == 'edit_in_place'
+            @original_value = record.send(association_name)
+            edit_in_place_submit_value(value)
+          else
+            change_value(value)
+          end
         end
 
         # read only ---------------------------------------------------------------

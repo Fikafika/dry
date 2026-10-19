@@ -737,7 +737,9 @@ class Form
 
         def render_edit_in_place
           layout_edit_in_place do
-            if edit_in_place_editing?
+            if editor && (m = :"render_edit_in_place_#{editor}") && respond_to?(m)
+              send(m)
+            elsif edit_in_place_editing?
               render_edit_in_place_editing
             else
               render_edit_in_place_not_editing
@@ -749,6 +751,20 @@ class Form
         end
 
         def render_edit_in_place_editing
+        end
+
+        def render_edit_in_place_step(inline = false)
+          step_input(inline)
+          edit_in_place_feedback_icon
+        end
+
+        def render_edit_in_place_step_inline
+          render_edit_in_place_step(true)
+        end
+
+        def edit_in_place_feedback_icon
+          return unless @loading || !@success.nil?
+          edit_in_place_icon
         end
 
         def edit_in_place_submit_value(value)

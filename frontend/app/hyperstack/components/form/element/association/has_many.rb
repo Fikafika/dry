@@ -355,7 +355,12 @@ class Form
         # step -------------------------------------------------------------------
 
         def change_step_value(value)
-          change_value(HyperResource::Relation.new(value.class, association: record.association(association_name), records: [value]))
+          if mode == 'edit_in_place'
+            @original_value = record.send(association_name)
+            edit_in_place_submit_value([value])
+          else
+            change_value(HyperResource::Relation.new(value.class, association: record.association(association_name), records: [value]))
+          end
         end
 
         # read only ---------------------------------------------------------------
