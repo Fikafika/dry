@@ -70,6 +70,22 @@ describe 'Form::Element::Attribute::Enum', type: :system do
       end
     end
 
+    context 'editor = select' do
+      before(:each) do
+        mount do
+          Form(record: Contact.new(civility: 'mrs')) do
+            Form::Element::Attribute::Enum(attribute_name: 'civility', editor: 'select')
+          end
+        end
+      end
+
+      it 'should display a select with an option per possible value' do
+        expect(page).to have_selector('select[name="contact[civility]"]')
+        expect(page).to have_selector('select[name="contact[civility]"] option[value="mr"]')
+        expect(page).to have_selector('select[name="contact[civility]"] option[value="mrs"]')
+      end
+    end
+
     context 'editor = step' do
       before(:each) do
         page_exec do

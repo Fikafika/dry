@@ -175,6 +175,113 @@ describe 'Form::Element::Association::BelongsTo', type: :system do
 
     end
 
+    context 'editor = step' do
+      before(:each) do
+        page_exec do
+          stub_request(:patch, /records/).to_return do |request|
+            $patch_body = JSON.parse(request.body)
+            {
+              status: 200,
+              body: {
+                id: 'bfe6e73c-a3a8-4f0b-8eaf-b35f90110309',
+                nested_id: 'f0e19422-c637-460b-aa49-b1819d9f300e',
+              }.to_json,
+            }
+          end
+        end
+
+        mount do
+          dynamic_form = Dynamic::Form.new(
+            id: 'c3fe8d40-4950-49ce-b107-7dc181599aac',
+            klass_name: 'Record',
+            mode: 'edit_in_place',
+            elements: [
+              {
+                id: 'f0e19422-c637-460b-aa49-b1819d9f300c',
+                klass_name: 'Record',
+                root_klass_name: 'Record',
+                method_names: [],
+                attribute_name: 'nested',
+                mode: 'edit_in_place',
+                editor: 'step',
+                normalized_input_prefix: 'record@0',
+                type: 'Association::BelongsTo',
+                possible_values: [
+                  {
+                    value_record: { id: 'f0e19422-c637-460b-aa49-b1819d9f300d', type: 'Nested', name: 'Toto' },
+                    position: 0,
+                  },
+                  {
+                    value_record: { id: 'f0e19422-c637-460b-aa49-b1819d9f300e', type: 'Nested', name: 'Titi' },
+                    position: 1,
+                  },
+                ],
+              },
+            ],
+            serialized_record_for_input_prefix: {
+              'record@0': {
+                'id': 'bfe6e73c-a3a8-4f0b-8eaf-b35f90110309',
+              },
+            },
+          )
+          dynamic_form.status_code = 200 # dynamic_form.loaded? must be true
+          Form(dynamic_form: dynamic_form)
+        end
+      end
+
+      it 'should show steps instead of the autocomplete' do
+        expect(page).to have_css('.step-list .step-list-item', count: 2)
+      end
+
+      it 'should submit immediately when a step is clicked' do
+        find_all('.step-list-item').last.click
+        expect(page).to have_css('.fa-check') # record is successfully updated
+        expect(
+          page_eval do
+            $patch_body.dig('record', 'nested_id')
+          end
+        ).to eq('f0e19422-c637-460b-aa49-b1819d9f300e')
+      end
+    end
+
+    context 'editor without edit in place rendering' do
+      before(:each) do
+        mount do
+          dynamic_form = Dynamic::Form.new(
+            id: 'c3fe8d40-4950-49ce-b107-7dc181599aac',
+            klass_name: 'Record',
+            mode: 'edit_in_place',
+            elements: [
+              {
+                id: 'f0e19422-c637-460b-aa49-b1819d9f300c',
+                klass_name: 'Record',
+                root_klass_name: 'Record',
+                method_names: [],
+                attribute_name: 'nested',
+                mode: 'edit_in_place',
+                editor: 'select',
+                normalized_input_prefix: 'record@0',
+                type: 'Association::BelongsTo',
+              },
+            ],
+            serialized_record_for_input_prefix: {
+              'record@0': {
+                'id': 'bfe6e73c-a3a8-4f0b-8eaf-b35f90110309',
+              },
+            },
+          )
+          dynamic_form.status_code = 200 # dynamic_form.loaded? must be true
+          Form(dynamic_form: dynamic_form)
+        end
+      end
+
+      it 'should fall back to the default edit in place' do
+        expect(page).to_not have_css('input')
+        find('.form-control').click
+        expect(page).to have_css('input')
+      end
+    end
+
     context 'polymorphic' do
       before(:each) do
         page_exec do
@@ -833,6 +940,95 @@ describe 'Form::Element::Association::BelongsTo', type: :system do
               expect(page).to have_content('nested 1')
               expect(page).to have_content('nested 2')
             end
+          end
+        end
+
+      end
+
+      context 'editor = step' do
+
+        context 'dynamic_form' do
+          before(:each) do
+            mount do
+              dynamic_form = Dynamic::Form.new(
+                id: 'c3fe8d40-4950-49ce-b107-7dc181599aac',
+                klass_name: 'Record',
+                mode: 'input',
+                elements: [
+                  {
+                    id: 'f0e19422-c637-460b-aa49-b1819d9f300c',
+                    klass_name: 'Record',
+                    root_klass_name: 'Record',
+                    method_names: [],
+                    attribute_name: 'nested',
+                    mode: nil,
+                    editor: 'step',
+                    normalized_input_prefix: 'record@0',
+                    type: 'Association::BelongsTo',
+                    possible_values: [
+                      {
+                        value_record: {
+                          id: 'f0e19422-c637-460b-aa49-b1819d9f300d',
+                          type: 'Nested',
+                          name: 'Toto',
+                        },
+                        translations: [{
+                          text: 'A',
+                          locale: 'fr',
+                        }],
+                        position: 0,
+                      },
+                      {
+                        value_record: {
+                          id: 'f0e19422-c637-460b-aa49-b1819d9f300e',
+                          type: 'Nested',
+                          name: 'Titi',
+                        },
+                        translations: [{
+                          text: 'B',
+                          locale: 'fr',
+                        }],
+                        position: 1,
+                      },
+                    ],
+                  },
+                ],
+                serialized_record_for_input_prefix: {
+                  'record@0': {
+                    'id': 'bfe6e73c-a3a8-4f0b-8eaf-b35f90110309',
+                  },
+                },
+              )
+              dynamic_form.status_code = 200 # dynamic_form.loaded? must be true
+              Form(dynamic_form: dynamic_form)
+            end
+          end
+
+          it 'should show a step for each possible value' do
+            expect(page).to have_css('.step-list .step-list-item', count: 2)
+            expect(page).to have_content('A')
+            expect(page).to have_content('B')
+          end
+
+          it 'should mark the clicked step and the previous ones as done' do
+            find_all('.step-list-item').last.click
+            expect(page).to have_css('.step-list-item.done', count: 2)
+          end
+
+          it 'should write in submission' do
+            find_all('.step-list-item').first.click
+
+            expect(
+              page_eval do
+                Form.current.submission.params.to_n
+              end
+            ).to eq(
+              {
+                "record@0.nested@0" => {
+                  "id" => 'f0e19422-c637-460b-aa49-b1819d9f300d'
+                }
+              }
+            )
           end
         end
 

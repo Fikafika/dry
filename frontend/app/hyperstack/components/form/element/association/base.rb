@@ -10,6 +10,9 @@ class Form
         include Hyperstack::Router::Helpers
         include TomSelect
 
+        param :value_position, default: nil
+        param :show_value, default: true
+
         after_new_params do
           init_association_min_max
         end
@@ -593,6 +596,127 @@ class Form
           render_input_select
         end
 
+        def render_possible_values_or_records(inline, &block)
+          with_inline_enabled(inline) do
+            if value_position == 'top'
+              render_possible_values_or_records_top(inline, &block)
+            else
+              render_possible_values_or_records_right(inline, &block)
+            end
+          end
+        end
+
+        def with_inline_enabled(inline)
+          if inline
+            DIV(class: 'text-left') do
+              yield
+            end
+          else
+            yield
+          end
+        end
+
+        def render_possible_values_or_records_right(inline)
+          possible_values_or_records.each_with_index do |possible_value_or_record, i|
+            id = value_id(i)
+            DIV(class: "form-check #{inline ? 'form-check-inline' : ''}") do
+              value = possible_value_or_record[:value] ? possible_value_or_record[:value] : possible_value_or_record
+              label = render_label(possible_value_or_record)
+              yield(id, value)
+              LABEL(class: 'form-check-label', htmlFor: id) do
+                show_value ? label : ''
+              end
+            end
+          end
+        end
+
+        def render_possible_values_or_records_top(inline)
+          possible_values_or_records.each_with_index do |possible_value_or_record, i|
+            id = value_id(i)
+            DIV(class: "form-check #{inline ? 'form-check-inline' : ''}") do
+              value = possible_value_or_record[:value] ? possible_value_or_record[:value] : possible_value_or_record
+              label = render_label(possible_value_or_record)
+              SPAN(class: "text-center") do
+                LABEL(class: '', htmlFor: id) do
+                  DIV(class: show_value ? 'no-height' : '') do # TODO class no-height
+                    show_value ? label : ''
+                  end
+                  yield(id, value)
+                end
+              end
+            end
+            LABEL(class: '') do
+              ''
+            end
+          end
+        end
+
+        # step -------------------------------------------------------------------
+
+        def render_input_step_inline
+          render_input_step(true)
+        end
+
+        def render_input_step(inline = false)
+          layout_input do
+            step_input(inline)
+            input_errors
+          end
+        end
+
+        def step_input(inline = false)
+          items = possible_values_or_records
+          DIV(step_args(inline)) do
+            items.each_with_index.map do |item, index|
+              done = items.slice(index..-1).any? { |following| checked?(following) }
+              if inline
+                DIV(class: 'container container-wrapper pl-0 mr-2') do
+                  DIV(class: "step-list-text-inline") { render_label(item) }
+                  DIV(class: "step-list-item-inline#{' done' if done}") do
+                    DIV(class: "step-list-bullet-elements") do
+                      DIV(class: "d-flex w-100") do
+                        if index > 0
+                          DIV(class: "step-list-bar #{'done' if done}")
+                        end
+                        DIV(class: "step-list-bullet")
+                      end
+                    end
+                  end
+                end.on(:click) do
+                  select_step_value(item)
+                end
+              else
+                DIV(class: "step-list-item#{' done' if done}") do
+                  DIV(class: "step-list-bullet")
+                  DIV(class: "step-list-text") { render_label(item) }
+                end.on(:click) do
+                  select_step_value(item)
+                end
+              end
+            end
+          end
+        end
+
+        def step_args(inline)
+          result = {
+            name: input_name,
+            class: "step-list#{'-inline' if inline} step-list-primary"
+          }
+          result[:disabled] = "disabled" if disabled
+          result[:readonly] = "readonly" if readonly
+          result[:"aria-describedby"] = "help-#{form_group_id}" if help.present?
+          return result
+        end
+
+        def select_step_value(item)
+          return if disabled || readonly
+          change_step_value(item[:value] || item)
+        end
+
+        def change_step_value(value)
+          # redefined
+        end
+
         def render_input_hidden
           unless in_editor
             values = selected_values
@@ -613,7 +737,9 @@ class Form
 
         def render_edit_in_place
           layout_edit_in_place do
-            if edit_in_place_editing?
+            if editor && (m = :"render_edit_in_place_#{editor}") && respond_to?(m)
+              send(m)
+            elsif edit_in_place_editing?
               render_edit_in_place_editing
             else
               render_edit_in_place_not_editing
@@ -625,6 +751,20 @@ class Form
         end
 
         def render_edit_in_place_editing
+        end
+
+        def render_edit_in_place_step(inline = false)
+          step_input(inline)
+          edit_in_place_feedback_icon
+        end
+
+        def render_edit_in_place_step_inline
+          render_edit_in_place_step(true)
+        end
+
+        def edit_in_place_feedback_icon
+          return unless @loading || !@success.nil?
+          edit_in_place_icon
         end
 
         def edit_in_place_submit_value(value)
